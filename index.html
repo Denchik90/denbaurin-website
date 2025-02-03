@@ -10,8 +10,8 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: #111;
-            color: #fff;
+            background: #fff;
+            color: #000;
             overflow-x: hidden;
         }
 
@@ -19,7 +19,7 @@
             position: relative;
             height: 100vh;
             text-align: left;
-            color: #fff;
+            color: #000;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -35,7 +35,6 @@
             height: 100%;
             background: url('Problembo.jpg') no-repeat center center/cover;
             z-index: -1;
-            filter: brightness(50%);
         }
 
         header h1 {
@@ -44,21 +43,19 @@
             font-family: 'Playfair Display', serif;
             text-transform: uppercase;
             letter-spacing: 5px;
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            color: #111;
         }
 
         header p {
             font-size: 1.5em;
             font-weight: 300;
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            color: #444;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            background: #222;
+            background: #f0f0f0;
             padding: 10px 0;
             position: sticky;
             top: 0;
@@ -66,7 +63,7 @@
         }
 
         nav a {
-            color: #fff;
+            color: #000;
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.1em;
@@ -74,7 +71,7 @@
         }
 
         nav a:hover {
-            color: #00ffff;
+            color: #007bff;
         }
 
         section {
@@ -112,14 +109,14 @@
         }
 
         footer {
-            background: #222;
-            color: #888;
+            background: #f0f0f0;
+            color: #666;
             padding: 20px;
             text-align: center;
         }
 
         footer a {
-            color: #00ffff;
+            color: #007bff;
             text-decoration: none;
             font-weight: bold;
         }
@@ -134,12 +131,18 @@
         }
 
         .contact-info a {
-            color: #00ffff;
+            color: #007bff;
             text-decoration: none;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-top: 30px;
+            color: #333;
         }
     </style>
 </head>
@@ -171,10 +174,33 @@
 
     <section id="gallery">
         <h2>Gallery</h2>
+
+        <h3>LAIMA RENDEZVOUS Jurmala 2024</h3>
         <div class="gallery">
-            <img src="photo1.jpg" alt="Photo 1">
-            <img src="photo2.jpg" alt="Photo 2">
-            <img src="photo3.jpg" alt="Photo 3">
+            <img src="laima1.jpg" alt="Laima Rendezvous 1">
+            <img src="laima2.jpg" alt="Laima Rendezvous 2">
+            <img src="laima3.jpg" alt="Laima Rendezvous 3">
+        </div>
+
+        <h3>The Power Of Ukraine</h3>
+        <div class="gallery">
+            <img src="ukraine1.jpg" alt="The Power Of Ukraine 1">
+            <img src="ukraine2.jpg" alt="The Power Of Ukraine 2">
+            <img src="ukraine3.jpg" alt="The Power Of Ukraine 3">
+        </div>
+
+        <h3>Репетиции</h3>
+        <div class="gallery">
+            <img src="rehearsal1.jpg" alt="Rehearsal 1">
+            <img src="rehearsal2.jpg" alt="Rehearsal 2">
+            <img src="rehearsal3.jpg" alt="Rehearsal 3">
+        </div>
+
+        <h3>Фотосессии</h3>
+        <div class="gallery">
+            <img src="photoshoot1.jpg" alt="Photoshoot 1">
+            <img src="photoshoot2.jpg" alt="Photoshoot 2">
+            <img src="photoshoot3.jpg" alt="Photoshoot 3">
         </div>
     </section>
 
