@@ -37,21 +37,29 @@
             z-index: -1;
         }
 
-        header h1 {
+        .header-text {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .header-text h1 {
             font-size: 6em;
             font-family: 'Playfair Display', serif;
             text-transform: uppercase;
             letter-spacing: 5px;
             color: #fff;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
             margin-bottom: 10px;
         }
 
-        header p {
+        .header-text p {
             font-size: 2em;
             font-weight: 400;
             color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
         }
 
         nav {
@@ -89,39 +97,29 @@
             font-family: 'Playfair Display', serif;
         }
 
-        .video-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        .news-section {
+            text-align: center;
             padding: 20px;
         }
 
-        .video-gallery iframe {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
+        .news-section ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
+        .news-section li {
+            margin: 10px 0;
+            font-size: 1.2em;
         }
 
-        .gallery a {
+        .news-section a {
             text-decoration: none;
-            font-size: 1.5em;
-            color: #000;
-            padding: 15px;
-            background: #f0f0f0;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            color: #007bff;
+            font-weight: bold;
         }
 
-        .gallery a:hover {
-            background: #ddd;
+        .news-section a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -137,29 +135,20 @@
 
     <header>
         <div class="background"></div>
-        <div>
+        <div class="header-text">
             <h1>DEN BAURIN</h1>
             <p>Music that inspires. Explore. Enjoy.</p>
         </div>
     </header>
 
-    <section id="gallery">
-        <h2>Галерея</h2>
-        <div class="gallery">
-            <a href="gallery/laima.html">LAIMA RENDEZVOUS Jurmala 2024</a>
-            <a href="gallery/ukraine.html">The Power Of Ukraine</a>
-            <a href="gallery/rehearsals.html">Репетиции</a>
-            <a href="gallery/photoshoots.html">Фотосессии</a>
-        </div>
-    </section>
-
-    <section id="videos">
-        <h2>Видео</h2>
-        <div class="video-gallery">
-            <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
-        </div>
+    <section id="news" class="news-section">
+        <h2>Новости</h2>
+        <ul>
+            <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Украинский певец принял участие в нацотборе на Eurovision 2025 от Сан-Марино</a></li>
+            <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest - Den Baurin "Moonlight" Premiere</a></li>
+            <li><a href="https://rai.ua/muzychni-novynky/den-baurin-pryviz-iz-argentyny-zapalnyi-hit" target="_blank">Den Baurin привіз із Аргентини запальний хіт</a></li>
+            <li><a href="https://www.issuewire.com/den-baurin-releases-heartwarming-holiday-single-christmas-magic-1818073728862576" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
+        </ul>
     </section>
 
     <footer>
