@@ -18,13 +18,13 @@
         header {
             position: relative;
             height: 100vh;
-            text-align: left;
+            text-align: center;
             color: #000;
             overflow: hidden;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            padding-right: 5%;
+            justify-content: center;
+            padding: 20px;
         }
 
         header .background {
@@ -37,14 +37,21 @@
             z-index: -1;
         }
 
-        header h1, header p {
-            text-align: center;
-            width: 100%;
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
+        header h1 {
+            font-size: 6em;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
             color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 2em;
+            font-weight: 400;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
         }
 
         nav {
@@ -63,6 +70,7 @@
             text-decoration: none;
             margin: 0 20px;
             font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
             transition: color 0.3s;
         }
 
@@ -93,6 +101,28 @@
             height: 200px;
             border-radius: 10px;
         }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery a {
+            text-decoration: none;
+            font-size: 1.5em;
+            color: #000;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery a:hover {
+            background: #ddd;
+        }
     </style>
 </head>
 <body>
@@ -107,16 +137,28 @@
 
     <header>
         <div class="background"></div>
-        <h1>DEN BAURIN</h1>
-        <p>Music that inspires. Explore. Enjoy.</p>
+        <div>
+            <h1>DEN BAURIN</h1>
+            <p>Music that inspires. Explore. Enjoy.</p>
+        </div>
     </header>
+
+    <section id="gallery">
+        <h2>Галерея</h2>
+        <div class="gallery">
+            <a href="gallery/laima.html">LAIMA RENDEZVOUS Jurmala 2024</a>
+            <a href="gallery/ukraine.html">The Power Of Ukraine</a>
+            <a href="gallery/rehearsals.html">Репетиции</a>
+            <a href="gallery/photoshoots.html">Фотосессии</a>
+        </div>
+    </section>
 
     <section id="videos">
         <h2>Видео</h2>
         <div class="video-gallery">
-            <iframe src="https://www.youtube.com/watch?v=U1JPlIThRfA" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/watch?v=08qiOYW2A_0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/watch?v=cWAzXMHGwVE" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
         </div>
     </section>
 
