@@ -97,6 +97,25 @@
             font-family: 'Playfair Display', serif;
         }
 
+        .music-player {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .video-gallery iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
         .news-section {
             text-align: center;
             padding: 20px;
@@ -141,9 +160,43 @@
         </div>
     </header>
 
+    <section id="music">
+        <h2>Музыка</h2>
+        <div class="music-player">
+            <iframe src="https://open.spotify.com/embed/artist/7ExDLUrSU5JolcpRRnFmGE" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2>Видео</h2>
+        <div class="video-gallery">
+            <iframe src="https://www.youtube.com/embed/1spGo3knZZY" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/lTqsUJ1V_KY" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/3BLwpTTi0uo" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/Tm7YoPbb7ZU" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Галерея</h2>
+        <p>Выберите альбом:</p>
+        <ul>
+            <li><a href="gallery/laima.html">LAIMA RENDEZVOUS Jurmala 2024</a></li>
+            <li><a href="gallery/ukraine.html">The Power Of Ukraine</a></li>
+            <li><a href="gallery/rehearsals.html">Репетиции</a></li>
+            <li><a href="gallery/photoshoots.html">Фотосессии</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 DEN BAURIN. All Rights Reserved. | <a href="#contact">Контакты</a></p>
     <section id="news" class="news-section">
         <h2>Новости</h2>
         <ul>
+            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
             <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Украинский певец принял участие в нацотборе на Eurovision 2025 от Сан-Марино</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest - Den Baurin "Moonlight" Premiere</a></li>
             <li><a href="https://rai.ua/muzychni-novynky/den-baurin-pryviz-iz-argentyny-zapalnyi-hit" target="_blank">Den Baurin привіз із Аргентини запальний хіт</a></li>
@@ -151,8 +204,6 @@
         </ul>
     </section>
 
-    <footer>
-        <p>© 2025 DEN BAURIN. All Rights Reserved. | <a href="#contact">Контакты</a></p>
-    </footer>
+</footer>
 </body>
 </html>
