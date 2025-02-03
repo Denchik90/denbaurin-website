@@ -37,36 +37,32 @@
             z-index: -1;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 4em;
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #111;
-        }
-
-        header p {
-            font-size: 1.5em;
-            font-weight: 300;
-            color: #444;
+        header h1, header p {
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            background: #f0f0f0;
-            padding: 10px 0;
+            background: #000;
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            font-size: 1.2em;
         }
 
         nav a {
-            color: #000;
+            color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1em;
+            margin: 0 20px;
+            font-family: 'Playfair Display', serif;
             transition: color 0.3s;
         }
 
@@ -85,132 +81,47 @@
             font-family: 'Playfair Display', serif;
         }
 
-        section p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        .gallery {
+        .video-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 20px;
         }
 
-        .gallery img {
+        .video-gallery iframe {
             width: 100%;
+            height: 200px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            background: #f0f0f0;
-            color: #666;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        h3 {
-            font-size: 2em;
-            margin-top: 30px;
-            color: #333;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="background"></div>
-        <div>
-            <h1>DEN BAURIN</h1>
-            <p>Music that inspires. Explore. Enjoy.</p>
-        </div>
-    </header>
-
     <nav>
-        <a href="#about">About</a>
-        <a href="#music">Music</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">О</a>
+        <a href="#music">Музыка</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#videos">Видео</a>
+        <a href="#news">Новости</a>
+        <a href="#contact">Контакты</a>
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Den Baurin is an artist who brings emotions to life through his music. Stay tuned for the latest releases and live performances!</p>
-    </section>
+    <header>
+        <div class="background"></div>
+        <h1>DEN BAURIN</h1>
+        <p>Music that inspires. Explore. Enjoy.</p>
+    </header>
 
-    <section id="music">
-        <h2>Latest Music</h2>
-        <p>Listen to my music on <a href="https://open.spotify.com/artist/7ExDLUrSU5JolcpRRnFmGE">Spotify</a> and watch my videos on <a href="https://www.youtube.com/@DenBaurinMusic">YouTube</a>.</p>
-    </section>
-
-    <section id="gallery">
-        <h2>Gallery</h2>
-
-        <h3>LAIMA RENDEZVOUS Jurmala 2024</h3>
-        <div class="gallery">
-            <img src="laima1.jpg" alt="Laima Rendezvous 1">
-            <img src="laima2.jpg" alt="Laima Rendezvous 2">
-            <img src="laima3.jpg" alt="Laima Rendezvous 3">
+    <section id="videos">
+        <h2>Видео</h2>
+        <div class="video-gallery">
+            <iframe src="https://www.youtube.com/watch?v=U1JPlIThRfA" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/watch?v=08qiOYW2A_0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/watch?v=cWAzXMHGwVE" allowfullscreen></iframe>
         </div>
-
-        <h3>The Power Of Ukraine</h3>
-        <div class="gallery">
-            <img src="ukraine1.jpg" alt="The Power Of Ukraine 1">
-            <img src="ukraine2.jpg" alt="The Power Of Ukraine 2">
-            <img src="ukraine3.jpg" alt="The Power Of Ukraine 3">
-        </div>
-
-        <h3>Репетиции</h3>
-        <div class="gallery">
-            <img src="rehearsal1.jpg" alt="Rehearsal 1">
-            <img src="rehearsal2.jpg" alt="Rehearsal 2">
-            <img src="rehearsal3.jpg" alt="Rehearsal 3">
-        </div>
-
-        <h3>Фотосессии</h3>
-        <div class="gallery">
-            <img src="photoshoot1.jpg" alt="Photoshoot 1">
-            <img src="photoshoot2.jpg" alt="Photoshoot 2">
-            <img src="photoshoot3.jpg" alt="Photoshoot 3">
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>✉️ <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
     </section>
 
     <footer>
-        <p>© 2025 DEN BAURIN. All Rights Reserved. | <a href="#contact">Contact Me</a></p>
+        <p>© 2025 DEN BAURIN. All Rights Reserved. | <a href="#contact">Контакты</a></p>
     </footer>
 </body>
 </html>
