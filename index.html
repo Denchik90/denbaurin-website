@@ -97,6 +97,19 @@
             font-family: 'Playfair Display', serif;
         }
 
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-section img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
         .music-player {
             display: flex;
             justify-content: center;
@@ -140,16 +153,48 @@
         .news-section a:hover {
             text-decoration: underline;
         }
+
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#about">О</a>
-        <a href="#music">Музыка</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#videos">Видео</a>
-        <a href="#news">Новости</a>
-        <a href="#contact">Контакты</a>
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#music">Music</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <header>
@@ -160,50 +205,77 @@
         </div>
     </header>
 
+    <section id="about">
+        <h2>About Me</h2>
+        <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
+    </section>
+
+    <section id="news" class="news-section">
+        <h2>News</h2>
+        <ul>
+            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
+            <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
+            <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the magic of Budapest: Den Baurin Moonlight Premiere</a></li>
+        </ul>
+    </section>
+
     <section id="music">
-        <h2>Музыка</h2>
+        <h2>Music</h2>
         <div class="music-player">
             <iframe src="https://open.spotify.com/embed/artist/7ExDLUrSU5JolcpRRnFmGE" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
     </section>
 
-    <section id="videos">
-        <h2>Видео</h2>
-        <div class="video-gallery">
-            <iframe src="https://www.youtube.com/embed/1spGo3knZZY" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/lTqsUJ1V_KY" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/3BLwpTTi0uo" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Tm7YoPbb7ZU" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-section">
+            <div>
+                <h3>Laima Rendezvous Jurmala 2024</h3>
+                <img src="laima3.jpg" alt="Laima 1">
+                <img src="laima7.jpg" alt="Laima 2">
+                <img src="laima8.JPG" alt="Laima 3">
+            </div>
+            <div>
+                <h3>USA Tour</h3>
+                <img src="ukraine1.JPG" alt="USA Tour 1">
+                <img src="ukraine2.JPG" alt="USA Tour 2">
+                <img src="ukraine5.png" alt="USA Tour 3">
+            </div>
+            <div>
+                <h3>Rehearsals</h3>
+                <img src="Repetitions1.JPG" alt="Rehearsals 1">
+                <img src="Repetitions3.JPG" alt="Rehearsals 2">
+                <img src="Repetitions4.JPG" alt="Rehearsals 3">
+            </div>
+            <div>
+                <h3>Autumn</h3>
+                <img src="photo_2024-11-03_15-36-09.jpg" alt="Autumn 1">
+                <img src="photo_2024-11-03_15-36-09 (4).jpg" alt="Autumn 2">
+                <img src="photo_2024-11-03_15-36-09 (3).jpg" alt="Autumn 3">
+            </div>
         </div>
     </section>
 
-    <section id="gallery">
-        <h2>Галерея</h2>
-        <p>Выберите альбом:</p>
-        <ul>
-            <li><a href="gallery/laima.html">LAIMA RENDEZVOUS Jurmala 2024</a></li>
-            <li><a href="gallery/ukraine.html">The Power Of Ukraine</a></li>
-            <li><a href="gallery/rehearsals.html">Репетиции</a></li>
-            <li><a href="gallery/photoshoots.html">Фотосессии</a></li>
-        </ul>
+    <section id="videos">
+        <h2>Videos</h2>
+        <div class="video-gallery">
+            <iframe src="https://www.youtube.com/watch?v=U1JPlIThRfA" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/watch?v=1spGo3knZZY" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
     </section>
 
     <footer>
-        <p>© 2025 DEN BAURIN. All Rights Reserved. | <a href="#contact">Контакты</a></p>
-    <section id="news" class="news-section">
-        <h2>Новости</h2>
-        <ul>
-            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
-            <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Украинский певец принял участие в нацотборе на Eurovision 2025 от Сан-Марино</a></li>
-            <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest - Den Baurin "Moonlight" Premiere</a></li>
-            <li><a href="https://rai.ua/muzychni-novynky/den-baurin-pryviz-iz-argentyny-zapalnyi-hit" target="_blank">Den Baurin привіз із Аргентини запальний хіт</a></li>
-            <li><a href="https://www.issuewire.com/den-baurin-releases-heartwarming-holiday-single-christmas-magic-1818073728862576" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
-        </ul>
-    </section>
-
-</footer>
+        <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
+        </div>
+    </footer>
 </body>
 </html>
