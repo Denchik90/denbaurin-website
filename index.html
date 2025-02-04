@@ -19,22 +19,13 @@
             position: relative;
             height: 100vh;
             text-align: center;
-            color: #000;
+            color: #fff;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-        }
-
-        header .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             background: url('Problembo.jpg') no-repeat center center/cover;
-            z-index: -1;
         }
 
         .header-text {
@@ -45,145 +36,32 @@
             text-align: center;
         }
 
-        .header-text h1 {
-            font-size: 6em;
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #fff;
-            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
-            margin-bottom: 10px;
-        }
-
-        .header-text p {
-            font-size: 2em;
-            font-weight: 400;
-            color: #fff;
-            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #000;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            font-size: 1.2em;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4em;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #007bff;
-        }
-
-        section {
-            padding: 50px 15px;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .gallery-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
         .gallery-section img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .music-player {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .video-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .video-gallery iframe {
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 200px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .overlay img {
+            max-width: 50vw;
+            max-height: 50vh;
             border-radius: 10px;
-        }
-
-        .news-section {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .news-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .news-section li {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-
-        .news-section a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        .news-section a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 30px;
-        }
-
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .social-icons {
-            margin: 10px 0;
-        }
-
-        .social-icons a {
-            color: #fff;
-            margin: 0 10px;
-            font-size: 1.5em;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            color: #007bff;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.5);
         }
     </style>
 </head>
@@ -198,19 +76,17 @@
     </nav>
 
     <header>
-        <div class="background"></div>
         <div class="header-text">
             <h1>DEN BAURIN</h1>
             <p>Music that inspires. Explore. Enjoy.</p>
         </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
-    </section>
+    <div class="overlay" id="overlay" onclick="closeOverlay()">
+        <img id="overlayImage" src="" alt="Enlarged Image">
+    </div>
 
-    <section id="news" class="news-section">
+    <section id="news">
         <h2>News</h2>
         <ul>
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
@@ -219,51 +95,24 @@
         </ul>
     </section>
 
-    <section id="music">
-        <h2>Music</h2>
-        <div class="music-player">
-            <iframe src="https://open.spotify.com/embed/artist/7ExDLUrSU5JolcpRRnFmGE" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-    </section>
-
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="gallery-section">
-            <div>
-                <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="laima3.jpg" alt="Laima 1">
-                <img src="laima7.jpg" alt="Laima 2">
-                <img src="laima8.JPG" alt="Laima 3">
-            </div>
-            <div>
-                <h3>USA Tour</h3>
-                <img src="ukraine1.JPG" alt="USA Tour 1">
-                <img src="ukraine2.JPG" alt="USA Tour 2">
-                <img src="ukraine5.png" alt="USA Tour 3">
-            </div>
-            <div>
-                <h3>Rehearsals</h3>
-                <img src="Repetitions1.JPG" alt="Rehearsals 1">
-                <img src="Repetitions3.JPG" alt="Rehearsals 2">
-                <img src="Repetitions4.JPG" alt="Rehearsals 3">
-            </div>
-            <div>
-                <h3>Autumn</h3>
-                <img src="photo_2024-11-03_15-36-09.jpg" alt="Autumn 1">
-                <img src="photo_2024-11-03_15-36-09 (4).jpg" alt="Autumn 2">
-                <img src="photo_2024-11-03_15-36-09 (3).jpg" alt="Autumn 3">
-            </div>
+            <img src="laima3.jpg" alt="Laima 1" onclick="enlargeImage(this)">
+            <img src="laima7.jpg" alt="Laima 2" onclick="enlargeImage(this)">
+            <img src="laima8.JPG" alt="Laima 3" onclick="enlargeImage(this)">
+            <img src="ukraine1.JPG" alt="USA Tour 1" onclick="enlargeImage(this)">
+            <img src="ukraine2.JPG" alt="USA Tour 2" onclick="enlargeImage(this)">
+            <img src="ukraine5.png" alt="USA Tour 3" onclick="enlargeImage(this)">
         </div>
     </section>
 
     <section id="videos">
         <h2>Videos</h2>
-        <div class="video-gallery">
-            <iframe src="https://www.youtube.com/watch?v=U1JPlIThRfA" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/watch?v=1spGo3knZZY" allowfullscreen></iframe>
-        </div>
+        <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/1spGo3knZZY" allowfullscreen></iframe>
     </section>
 
     <section id="contact">
@@ -271,11 +120,15 @@
         <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
     </section>
 
-    <footer>
-        <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
-        </div>
-    </footer>
+    <script>
+        function enlargeImage(img) {
+            document.getElementById('overlayImage').src = img.src;
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function closeOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
