@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official website of DEN BAURIN. Explore music, videos, gallery, and news.">
+    <meta name="keywords" content="DEN BAURIN, music, artist, Eurovision, gallery, videos">
+    <meta name="author" content="DEN BAURIN">
     <title>DEN BAURIN - Official Website</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
@@ -13,6 +16,12 @@
             background: #fff;
             color: #000;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background: #121212;
+            color: #ffffff;
         }
 
         header {
@@ -35,6 +44,7 @@
             height: 100%;
             background: url('Problembo.jpg') no-repeat center center/cover;
             z-index: -1;
+            background-attachment: fixed;
         }
 
         .header-text {
@@ -79,11 +89,12 @@
             margin: 0 20px;
             font-family: 'Playfair Display', serif;
             font-size: 1.4em;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
         }
 
         nav a:hover {
             color: #007bff;
+            transform: translateY(-3px);
         }
 
         section {
@@ -226,6 +237,71 @@
             color: #007bff;
         }
 
+        /* Кнопка "Наверх" */
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Форма подписки */
+        #subscribe form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #subscribe input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        #subscribe button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #subscribe button:hover {
+            background: #0056b3;
+        }
+
+        /* Раздел отзывов */
+        #reviews textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #reviews button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #reviews button:hover {
+            background: #0056b3;
+        }
+
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .header-text h1 {
@@ -315,6 +391,7 @@
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
             <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-releases-heartwarming-holiday-single-christmas-magic.html" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
+            <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the magic of Budapest: Den Baurin Moonlight Premiere</a></li>
             <li><a href="https://canvasrebel.com/meet-den-baurin/" target="_blank">Meet Den Baurin - Interview with CanvasRebel</a></li>
         </ul>
     </section>
@@ -324,6 +401,10 @@
         <div class="music-player">
             <iframe src="https://open.spotify.com/embed/artist/7ExDLUrSU5JolcpRRnFmGE" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
+        <audio controls>
+            <source src="music/christmas-magic.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </section>
 
     <section id="gallery">
@@ -359,7 +440,9 @@
     <!-- Модальное окно -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
+        <button class="prev" onclick="showPreviousImage()">&#10094;</button>
         <img class="modal-content" id="modalImg">
+        <button class="next" onclick="showNextImage()">&#10095;</button>
     </div>
 
     <section id="videos">
@@ -382,27 +465,19 @@
         <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
     </section>
 
+    <!-- Раздел отзывов -->
+    <section id="reviews">
+        <h2>Fan Reviews</h2>
+        <div id="reviews-container">
+            <!-- Отзывы будут добавляться сюда -->
+        </div>
+        <form id="review-form">
+            <textarea placeholder="Leave your review" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
     <footer>
         <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
-        </div>
-    </footer>
-
-    <script>
-        // Функция для открытия модального окна
-        function openModal(src) {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("modalImg");
-            modal.style.display = "flex";
-            modalImg.src = src;
-        }
-
-        // Функция для закрытия модального окна
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-    </script>
-</body>
-</html>
+            <a href="https://www.instagram.com/denbaurin.music/" target="_blank
