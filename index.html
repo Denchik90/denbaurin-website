@@ -108,6 +108,46 @@
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #ccc;
         }
 
         .music-player {
@@ -275,6 +315,7 @@
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
             <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the magic of Budapest: Den Baurin Moonlight Premiere</a></li>
+            <li><a href="https://canvasrebel.com/meet-den-baurin/" target="_blank">Meet Den Baurin - Interview with CanvasRebel</a></li>
         </ul>
     </section>
 
@@ -290,30 +331,36 @@
         <div class="gallery-section">
             <div>
                 <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="laima3.jpg" alt="Laima 1">
-                <img src="laima7.jpg" alt="Laima 2">
-                <img src="laima8.JPG" alt="Laima 3">
+                <img src="laima3.jpg" alt="Laima 1" onclick="openModal('laima3.jpg')">
+                <img src="laima7.jpg" alt="Laima 2" onclick="openModal('laima7.jpg')">
+                <img src="laima8.JPG" alt="Laima 3" onclick="openModal('laima8.JPG')">
             </div>
             <div>
                 <h3>USA Tour</h3>
-                <img src="ukraine1.JPG" alt="USA Tour 1">
-                <img src="ukraine2.JPG" alt="USA Tour 2">
-                <img src="ukraine5.png" alt="USA Tour 3">
+                <img src="ukraine1.JPG" alt="USA Tour 1" onclick="openModal('ukraine1.JPG')">
+                <img src="ukraine2.JPG" alt="USA Tour 2" onclick="openModal('ukraine2.JPG')">
+                <img src="ukraine5.png" alt="USA Tour 3" onclick="openModal('ukraine5.png')">
             </div>
             <div>
                 <h3>Rehearsals</h3>
-                <img src="Repetitions1.JPG" alt="Rehearsals 1">
-                <img src="Repetitions3.JPG" alt="Rehearsals 2">
-                <img src="Repetitions4.JPG" alt="Rehearsals 3">
+                <img src="Repetitions1.JPG" alt="Rehearsals 1" onclick="openModal('Repetitions1.JPG')">
+                <img src="Repetitions3.JPG" alt="Rehearsals 2" onclick="openModal('Repetitions3.JPG')">
+                <img src="Repetitions4.JPG" alt="Rehearsals 3" onclick="openModal('Repetitions4.JPG')">
             </div>
             <div>
                 <h3>Autumn</h3>
-                <img src="photo_2024-11-03_15-36-09.jpg" alt="Autumn 1">
-                <img src="photo_2024-11-03_15-36-09 (4).jpg" alt="Autumn 2">
-                <img src="photo_2024-11-03_15-36-09 (3).jpg" alt="Autumn 3">
+                <img src="photo_2024-11-03_15-36-09.jpg" alt="Autumn 1" onclick="openModal('photo_2024-11-03_15-36-09.jpg')">
+                <img src="photo_2024-11-03_15-36-09 (4).jpg" alt="Autumn 2" onclick="openModal('photo_2024-11-03_15-36-09 (4).jpg')">
+                <img src="photo_2024-11-03_15-36-09 (3).jpg" alt="Autumn 3" onclick="openModal('photo_2024-11-03_15-36-09 (3).jpg')">
             </div>
         </div>
     </section>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
 
     <section id="videos">
         <h2>Videos</h2>
@@ -336,5 +383,21 @@
             <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
         </div>
     </footer>
+
+    <script>
+        // Функция для открытия модального окна
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+
+        // Функция для закрытия модального окна
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
