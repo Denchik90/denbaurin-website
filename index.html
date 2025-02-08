@@ -251,6 +251,57 @@
             cursor: pointer;
         }
 
+        /* Форма подписки */
+        #subscribe form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #subscribe input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        #subscribe button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #subscribe button:hover {
+            background: #0056b3;
+        }
+
+        /* Раздел отзывов */
+        #reviews textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #reviews button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #reviews button:hover {
+            background: #0056b3;
+        }
+
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .header-text h1 {
@@ -312,12 +363,6 @@
     </style>
 </head>
 <body>
-    <!-- Фоновая музыка -->
-    <audio id="background-music" autoplay loop>
-        <source src="music/your-music-file.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
     <nav>
         <a href="#about">About</a>
         <a href="#news">News</a>
@@ -363,35 +408,27 @@
         <div class="gallery-section">
             <div>
                 <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="laima/laima1.jpg" alt="Laima 1" onclick="openModal('laima/laima1.jpg')">
-                <img src="laima/laima2.jpg" alt="Laima 2" onclick="openModal('laima/laima2.jpg')">
-                <img src="laima/laima3.jpg" alt="Laima 3" onclick="openModal('laima/laima3.jpg')">
-                <img src="laima/laima4.jpg" alt="Laima 4" onclick="openModal('laima/laima4.jpg')">
-                <img src="laima/laima5.jpg" alt="Laima 5" onclick="openModal('laima/laima5.jpg')">
+                <img src="laima/laima3.jpg" alt="Laima 1" onclick="openModal('laima/laima3.jpg')">
+                <img src="laima/laima7.jpg" alt="Laima 2" onclick="openModal('laima/laima7.jpg')">
+                <img src="laima/laima8.JPG" alt="Laima 3" onclick="openModal('laima/laima8.JPG')">
             </div>
             <div>
                 <h3>USA Tour</h3>
-                <img src="usa_tour/usa1.jpg" alt="USA Tour 1" onclick="openModal('usa_tour/usa1.jpg')">
-                <img src="usa_tour/usa2.jpg" alt="USA Tour 2" onclick="openModal('usa_tour/usa2.jpg')">
-                <img src="usa_tour/usa3.jpg" alt="USA Tour 3" onclick="openModal('usa_tour/usa3.jpg')">
-                <img src="usa_tour/usa4.jpg" alt="USA Tour 4" onclick="openModal('usa_tour/usa4.jpg')">
-                <img src="usa_tour/usa5.jpg" alt="USA Tour 5" onclick="openModal('usa_tour/usa5.jpg')">
+                <img src="usa_tour/ukraine1.JPG" alt="USA Tour 1" onclick="openModal('usa_tour/ukraine1.JPG')">
+                <img src="usa_tour/ukraine2.JPG" alt="USA Tour 2" onclick="openModal('usa_tour/ukraine2.JPG')">
+                <img src="usa_tour/ukraine5.png" alt="USA Tour 3" onclick="openModal('usa_tour/ukraine5.png')">
             </div>
             <div>
                 <h3>Rehearsals</h3>
-                <img src="rehearsals/rehearsal1.jpg" alt="Rehearsals 1" onclick="openModal('rehearsals/rehearsal1.jpg')">
-                <img src="rehearsals/rehearsal2.jpg" alt="Rehearsals 2" onclick="openModal('rehearsals/rehearsal2.jpg')">
-                <img src="rehearsals/rehearsal3.jpg" alt="Rehearsals 3" onclick="openModal('rehearsals/rehearsal3.jpg')">
-                <img src="rehearsals/rehearsal4.jpg" alt="Rehearsals 4" onclick="openModal('rehearsals/rehearsal4.jpg')">
-                <img src="rehearsals/rehearsal5.jpg" alt="Rehearsals 5" onclick="openModal('rehearsals/rehearsal5.jpg')">
+                <img src="rehearsals/Repetitions1.JPG" alt="Rehearsals 1" onclick="openModal('rehearsals/Repetitions1.JPG')">
+                <img src="rehearsals/Repetitions3.JPG" alt="Rehearsals 2" onclick="openModal('rehearsals/Repetitions3.JPG')">
+                <img src="rehearsals/Repetitions4.JPG" alt="Rehearsals 3" onclick="openModal('rehearsals/Repetitions4.JPG')">
             </div>
             <div>
                 <h3>Autumn</h3>
-                <img src="autumn/autumn1.jpg" alt="Autumn 1" onclick="openModal('autumn/autumn1.jpg')">
-                <img src="autumn/autumn2.jpg" alt="Autumn 2" onclick="openModal('autumn/autumn2.jpg')">
-                <img src="autumn/autumn3.jpg" alt="Autumn 3" onclick="openModal('autumn/autumn3.jpg')">
-                <img src="autumn/autumn4.jpg" alt="Autumn 4" onclick="openModal('autumn/autumn4.jpg')">
-                <img src="autumn/autumn5.jpg" alt="Autumn 5" onclick="openModal('autumn/autumn5.jpg')">
+                <img src="autumn/photo_2024-11-03_15-36-09.jpg" alt="Autumn 1" onclick="openModal('autumn/photo_2024-11-03_15-36-09.jpg')">
+                <img src="autumn/photo_2024-11-03_15-36-09 (4).jpg" alt="Autumn 2" onclick="openModal('autumn/photo_2024-11-03_15-36-09 (4).jpg')">
+                <img src="autumn/photo_2024-11-03_15-36-09 (3).jpg" alt="Autumn 3" onclick="openModal('autumn/photo_2024-11-03_15-36-09 (3).jpg')">
             </div>
         </div>
     </section>
@@ -423,3 +460,13 @@
         <h2>Contact</h2>
         <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
     </section>
+
+    <!-- Раздел отзывов -->
+    <section id="reviews">
+        <h2>Fan Reviews</h2>
+        <div id="reviews-container">
+            <!-- Отзывы будут добавляться сюда -->
+        </div>
+        <form id="review-form">
+            <textarea placeholder="Leave your review" required></textarea>
+            <button type="submit">Submit</button>
