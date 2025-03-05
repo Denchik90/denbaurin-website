@@ -1,494 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEN BAURIN - Official Website</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
-
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif, Arial, Helvetica;
-            background: #fff;
-            color: #000;
-            overflow-x: hidden;
-        }
-
-        /* Виджет времени и погоды */
-        .weather-time-widget {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .weather-time-widget img {
-            width: 30px;
-            height: 30px;
-        }
-
-        header {
-            position: relative;
-            height: 100vh;
-            text-align: center;
-            color: #000;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        header .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('Problembo.jpg') no-repeat center center/cover;
-            z-index: -1;
-        }
-
-        #headerVideo {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .header-text {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-
-        .header-text h1 {
-            font-size: 6em;
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .header-text p {
-            font-size: 2em;
-            font-weight: 400;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
-        }
-
-        header.visible .header-text h1,
-        header.visible .header-text p {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #000;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            font-size: 1.2em;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4em;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #007bff;
-        }
-
-        section {
-            padding: 50px 15px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .gallery-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .gallery-section img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-section img:hover {
-            transform: scale(1.05);
-        }
-
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #fff;
-        }
-
-        .swiper-pagination-bullet {
-            background: #fff;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .modal-content.enlarged {
-            transform: scale(1.5); /* Увеличение на 50% */
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #ccc;
-        }
-
-        .video-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .video-gallery iframe {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-        }
-
-        .news-section {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .news-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .news-section li {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-
-        .news-section a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        .news-section a:hover {
-            text-decoration: underline;
-        }
-
-        #contactForm {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        #contactForm input,
-        #contactForm textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #contactForm button {
-            padding: 10px 20px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #contactForm button:hover {
-            background: #0056b3;
-        }
-
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 30px;
-        }
-
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .social-icons {
-            margin: 10px 0;
-        }
-
-        .social-icons a {
-            color: #fff;
-            margin: 0 10px;
-            font-size: 1.5em;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            color: #007bff;
-        }
-
-        @media (max-width: 768px) {
-            .header-text h1 {
-                font-size: 4em;
-            }
-
-            .header-text p {
-                font-size: 1.5em;
-            }
-
-            nav a {
-                font-size: 1.2em;
-                margin: 0 10px;
-            }
-
-            section {
-                padding: 30px 10px;
-            }
-
-            section h2 {
-                font-size: 2em;
-            }
-
-            .gallery-section, .video-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-
-            .video-gallery iframe {
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-text h1 {
-                font-size: 3em;
-            }
-
-            .header-text p {
-                font-size: 1.2em;
-            }
-
-            nav a {
-                font-size: 1em;
-                margin: 0 5px;
-            }
-
-            section h2 {
-                font-size: 1.8em;
-            }
-
-            .gallery-section, .video-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .video-gallery iframe {
-                height: 120px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Виджет времени и погоды -->
-    <div class="weather-time-widget">
-        <div id="time"></div>
-        <div id="weather">
-            <img id="weather-icon" src="" alt="Weather Icon">
-            <span id="temperature"></span>
-        </div>
-    </div>
-
-    <nav>
-        <a href="#premiere">Премьера</a>
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#music">Music</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#videos">Videos</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <header>
-        <video autoplay muted loop id="headerVideo">
-            <source src="background-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="header-text">
-            <h1>DEN BAURIN</h1>
-            <p>Music that inspires. Explore. Enjoy.</p>
-        </div>
-    </header>
-
-    <!-- Раздел: Премьера -->
-    <section id="premiere">
-        <h2>Премьера</h2>
-        <div class="video-gallery">
-            <iframe src="https://www.youtube.com/embed/bpZ6C31qPdQ" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <!-- Раздел: Обо мне -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
-    </section>
-
-    <!-- Раздел: Новости -->
-    <section id="news" class="news-section">
-        <h2>News</h2>
-        <ul>
-            <li><a href="https://www.wicz.com/story/52459875/den-baurins-freelove-eurovision-2025-audition-song-already-on-radio-worldwide" target="_blank">Den Baurin's "Freelove" Eurovision 2025 Audition Song Already on Radio Worldwide</a></li>
-            <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest: Den Baurin Moonlight Premiere</a></li>
-            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
-            <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
-            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-releases-heartwarming-holiday-single-christmas-magic.html" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
-            <li><a href="https://canvasrebel.com/meet-den-baurin/" target="_blank">Meet Den Baurin - Interview with CanvasRebel</a></li>
-        </ul>
-    </section>
-
-    <!-- Раздел: Музыка -->
-    <section id="music">
-        <h2>Music</h2>
-        <div class="music-player">
-            <iframe src="https://open.spotify.com/embed/artist/7ExDLUrSU5JolcpRRnFmGE" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-    </section>
-
-    <!-- Раздел: Галерея -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-section">
-            <div>
-                <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="images/laima/laima1.jpg" alt="Laima 1" onclick="openModal('images/laima/laima1.jpg')">
-                <img src="images/laima/laima2.jpg" alt="Laima 2" onclick="openModal('images/laima/laima2.jpg')">
-                <img src="images/laima/laima3.jpg" alt="Laima 3" onclick="openModal('images/laima/laima3.jpg')">
-                <img src="images/laima/laima4.jpg" alt="Laima 4" onclick="openModal('images/laima/laima4.jpg')">
-                <img src="images/laima/laima5.jpg" alt="Laima 5" onclick="openModal('images/laima/laima5.jpg')">
-            </div>
-            <div>
-                <h3>USA Tour</h3>
-                <img src="images/usa-tour/usa1.jpg" alt="USA Tour 1" onclick="openModal('images/usa-tour/usa1.jpg')">
-                <img src="images/usa-tour/usa2.jpg" alt="USA Tour 2" onclick="openModal('images/usa-tour/usa2.jpg')">
-                <img src="images/usa-tour/usa3.jpg" alt="USA Tour 3" onclick="openModal('images/usa-tour/usa3.jpg')">
-                <img src="images/usa-tour/usa4.jpg" alt="USA Tour 4" onclick="openModal('images/usa-tour/usa4.jpg')">
-                <img src="images/usa-tour/usa5.jpg" alt="USA Tour 5" onclick="openModal('images/usa-tour/usa5.jpg')">
-            </div>
-            <div>
-                <h3>Rehearsals</h3>
-                <img src="images/rehearsals/rehearsal1.jpg" alt="Rehearsals 1" onclick="openModal('images/rehearsals/rehearsal1.jpg')">
-                <img src="images/rehearsals/rehearsal2.jpg" alt="Rehearsals 2" onclick="openModal('images/rehearsals/rehearsal2.jpg')">
-                <img src="images/rehearsals/rehearsal3.jpg" alt="Rehearsals 3" onclick="openModal('images/rehearsals/rehearsal3.jpg')">
-                <img src="images/rehearsals/rehearsal4.jpg" alt="Rehearsals 4" onclick="openModal('images/rehearsals/rehearsal4.jpg')">
-                <img src="images/rehearsals/rehearsal5.jpg" alt="Rehearsals 5" onclick="openModal('images/rehearsals/rehearsal5.jpg')">
-            </div>
-            <div>
-                <h3>Autumn</h3>
-                <img
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.header-text h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff9800;
+}
+
+.gallery-section {
+    padding: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.1);
+}
+
+#music {
+    padding: 20px;
+}
+
+#contact {
+    padding: 20px;
+}
