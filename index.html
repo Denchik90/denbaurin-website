@@ -16,6 +16,27 @@
             overflow-x: hidden;
         }
 
+        /* Виджет времени и погоды */
+        .weather-time-widget {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .weather-time-widget img {
+            width: 30px;
+            height: 30px;
+        }
+
         header {
             position: relative;
             height: 100vh;
@@ -375,6 +396,15 @@
     </style>
 </head>
 <body>
+    <!-- Виджет времени и погоды -->
+    <div class="weather-time-widget">
+        <div id="time"></div>
+        <div id="weather">
+            <img id="weather-icon" src="" alt="Weather Icon">
+            <span id="temperature"></span>
+        </div>
+    </div>
+
     <nav>
         <a href="#premiere">Премьера</a>
         <a href="#about">About</a>
@@ -396,7 +426,7 @@
         </div>
     </header>
 
-    <!-- Новый раздел: Премьера -->
+    <!-- Раздел: Премьера -->
     <section id="premiere">
         <h2>Премьера</h2>
         <div class="video-gallery">
@@ -404,22 +434,26 @@
         </div>
     </section>
 
+    <!-- Раздел: Обо мне -->
     <section id="about">
         <h2>About Me</h2>
         <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
     </section>
 
+    <!-- Раздел: Новости -->
     <section id="news" class="news-section">
         <h2>News</h2>
         <ul>
             <li><a href="https://www.wicz.com/story/52459875/den-baurins-freelove-eurovision-2025-audition-song-already-on-radio-worldwide" target="_blank">Den Baurin's "Freelove" Eurovision 2025 Audition Song Already on Radio Worldwide</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest: Den Baurin Moonlight Premiere</a></li>
+            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
             <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-releases-heartwarming-holiday-single-christmas-magic.html" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
             <li><a href="https://canvasrebel.com/meet-den-baurin/" target="_blank">Meet Den Baurin - Interview with CanvasRebel</a></li>
         </ul>
     </section>
 
+    <!-- Раздел: Музыка -->
     <section id="music">
         <h2>Music</h2>
         <div class="music-player">
@@ -427,6 +461,7 @@
         </div>
     </section>
 
+    <!-- Раздел: Галерея -->
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="gallery-section">
