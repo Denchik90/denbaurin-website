@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEN BAURIN - Official Website</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
 
@@ -38,16 +37,6 @@
             z-index: -1;
         }
 
-        #headerVideo {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
         .header-text {
             position: absolute;
             bottom: 30px;
@@ -62,27 +51,15 @@
             text-transform: uppercase;
             letter-spacing: 5px;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
             margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         .header-text p {
             font-size: 2em;
             font-weight: 400;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
-        }
-
-        header.visible .header-text h1,
-        header.visible .header-text p {
-            opacity: 1;
-            transform: translateY(0);
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
         }
 
         nav {
@@ -112,14 +89,6 @@
         section {
             padding: 50px 15px;
             text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         section h2 {
@@ -147,36 +116,7 @@
             transform: scale(1.05);
         }
 
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #fff;
-        }
-
-        .swiper-pagination-bullet {
-            background: #fff;
-        }
-
+        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -194,11 +134,6 @@
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .modal-content.enlarged {
-            transform: scale(1.5); /* Увеличение на 50% */
         }
 
         .close {
@@ -213,6 +148,12 @@
 
         .close:hover {
             color: #ccc;
+        }
+
+        .music-player {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
         }
 
         .video-gallery {
@@ -253,36 +194,6 @@
             text-decoration: underline;
         }
 
-        #contactForm {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        #contactForm input,
-        #contactForm textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #contactForm button {
-            padding: 10px 20px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #contactForm button:hover {
-            background: #0056b3;
-        }
-
         footer {
             background: #000;
             color: #fff;
@@ -315,6 +226,7 @@
             color: #007bff;
         }
 
+        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .header-text h1 {
                 font-size: 4em;
@@ -385,10 +297,7 @@
     </nav>
 
     <header>
-        <video autoplay muted loop id="headerVideo">
-            <source src="background-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="background"></div>
         <div class="header-text">
             <h1>DEN BAURIN</h1>
             <p>Music that inspires. Explore. Enjoy.</p>
@@ -422,27 +331,27 @@
         <div class="gallery-section">
             <div>
                 <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="images/laima/laima3.jpg" alt="Laima 1" onclick="openModal('images/laima/laima3.jpg')">
-                <img src="images/laima/laima7.jpg" alt="Laima 2" onclick="openModal('images/laima/laima7.jpg')">
-                <img src="images/laima/laima8.JPG" alt="Laima 3" onclick="openModal('images/laima/laima8.JPG')">
+                <img src="laima3.jpg" alt="Laima 1" onclick="openModal('laima3.jpg')">
+                <img src="laima7.jpg" alt="Laima 2" onclick="openModal('laima7.jpg')">
+                <img src="laima8.JPG" alt="Laima 3" onclick="openModal('laima8.JPG')">
             </div>
             <div>
                 <h3>USA Tour</h3>
-                <img src="images/usa-tour/ukraine1.JPG" alt="USA Tour 1" onclick="openModal('images/usa-tour/ukraine1.JPG')">
-                <img src="images/usa-tour/ukraine2.JPG" alt="USA Tour 2" onclick="openModal('images/usa-tour/ukraine2.JPG')">
-                <img src="images/usa-tour/ukraine5.png" alt="USA Tour 3" onclick="openModal('images/usa-tour/ukraine5.png')">
+                <img src="ukraine1.JPG" alt="USA Tour 1" onclick="openModal('ukraine1.JPG')">
+                <img src="ukraine2.JPG" alt="USA Tour 2" onclick="openModal('ukraine2.JPG')">
+                <img src="ukraine5.png" alt="USA Tour 3" onclick="openModal('ukraine5.png')">
             </div>
             <div>
                 <h3>Rehearsals</h3>
-                <img src="images/rehearsals/Repetitions1.JPG" alt="Rehearsals 1" onclick="openModal('images/rehearsals/Repetitions1.JPG')">
-                <img src="images/rehearsals/Repetitions3.JPG" alt="Rehearsals 2" onclick="openModal('images/rehearsals/Repetitions3.JPG')">
-                <img src="images/rehearsals/Repetitions4.JPG" alt="Rehearsals 3" onclick="openModal('images/rehearsals/Repetitions4.JPG')">
+                <img src="Repetitions1.JPG" alt="Rehearsals 1" onclick="openModal('Repetitions1.JPG')">
+                <img src="Repetitions3.JPG" alt="Rehearsals 2" onclick="openModal('Repetitions3.JPG')">
+                <img src="Repetitions4.JPG" alt="Rehearsals 3" onclick="openModal('Repetitions4.JPG')">
             </div>
             <div>
                 <h3>Autumn</h3>
-                <img src="images/autumn/photo_2024-11-03_15-36-09.jpg" alt="Autumn 1" onclick="openModal('images/autumn/photo_2024-11-03_15-36-09.jpg')">
-                <img src="images/autumn/photo_2024-11-03_15-36-09 (4).jpg" alt="Autumn 2" onclick="openModal('images/autumn/photo_2024-11-03_15-36-09 (4).jpg')">
-                <img src="images/autumn/photo_2024-11-03_15-36-09 (3).jpg" alt="Autumn 3" onclick="openModal('images/autumn/photo_2024-11-03_15-36-09 (3).jpg')">
+                <img src="photo_2024-11-03_15-36-09.jpg" alt="Autumn 1" onclick="openModal('photo_2024-11-03_15-36-09.jpg')">
+                <img src="photo_2024-11-03_15-36-09 (4).jpg" alt="Autumn 2" onclick="openModal('photo_2024-11-03_15-36-09 (4).jpg')">
+                <img src="photo_2024-11-03_15-36-09 (3).jpg" alt="Autumn 3" onclick="openModal('photo_2024-11-03_15-36-09 (3).jpg')">
             </div>
         </div>
     </section>
@@ -450,7 +359,7 @@
     <!-- Модальное окно -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg" onclick="toggleEnlarge()">
+        <img class="modal-content" id="modalImg">
     </div>
 
     <section id="videos">
@@ -462,23 +371,35 @@
             <iframe src="https://www.youtube.com/embed/1spGo3knZZY" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/lTqsUJ1V_KY" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/fQhTCSxKfk0" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/3BLwpTTi0uo" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Yu1j00Nrku8" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Tm7YoPbb7ZU" allowfullscreen></iframe>
         </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+        <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
     </section>
 
     <footer>
         <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="https://www.instagram.com/
+            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для открытия модального окна
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+
+        // Функция для закрытия модального окна
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
