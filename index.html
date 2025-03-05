@@ -194,11 +194,6 @@
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .modal-content.enlarged {
-            transform: scale(1.5); /* Увеличение на 50% */
         }
 
         .close {
@@ -376,7 +371,6 @@
 </head>
 <body>
     <nav>
-        <a href="#premiere">Премьера</a>
         <a href="#about">About</a>
         <a href="#news">News</a>
         <a href="#music">Music</a>
@@ -396,14 +390,6 @@
         </div>
     </header>
 
-    <!-- Новый раздел: Премьера -->
-    <section id="premiere">
-        <h2>Премьера</h2>
-        <div class="video-gallery">
-            <iframe src="https://www.youtube.com/embed/bpZ6C31qPdQ" allowfullscreen></iframe>
-        </div>
-    </section>
-
     <section id="about">
         <h2>About Me</h2>
         <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
@@ -412,8 +398,6 @@
     <section id="news" class="news-section">
         <h2>News</h2>
         <ul>
-            <li><a href="https://www.wicz.com/story/52459875/den-baurins-freelove-eurovision-2025-audition-song-already-on-radio-worldwide" target="_blank">Den Baurin's "Freelove" Eurovision 2025 Audition Song Already on Radio Worldwide</a></li>
-            <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest: Den Baurin Moonlight Premiere</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
             <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-releases-heartwarming-holiday-single-christmas-magic.html" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
@@ -430,49 +414,108 @@
 
     <section id="gallery">
         <h2>Gallery</h2>
-        <div class="gallery-section">
-            <div>
-                <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="images/laima/laima1.jpg" alt="Laima 1" onclick="openModal('images/laima/laima1.jpg')">
-                <img src="images/laima/laima2.jpg" alt="Laima 2" onclick="openModal('images/laima/laima2.jpg')">
-                <img src="images/laima/laima3.jpg" alt="Laima 3" onclick="openModal('images/laima/laima3.jpg')">
-                <img src="images/laima/laima4.jpg" alt="Laima 4" onclick="openModal('images/laima/laima4.jpg')">
-                <img src="images/laima/laima5.jpg" alt="Laima 5" onclick="openModal('images/laima/laima5.jpg')">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="laima3.jpg" alt="Laima 1"></div>
+                <div class="swiper-slide"><img src="laima7.jpg" alt="Laima 2"></div>
+                <div class="swiper-slide"><img src="laima8.JPG" alt="Laima 3"></div>
+                <div class="swiper-slide"><img src="ukraine1.JPG" alt="USA Tour 1"></div>
+                <div class="swiper-slide"><img src="ukraine2.JPG" alt="USA Tour 2"></div>
+                <div class="swiper-slide"><img src="ukraine5.png" alt="USA Tour 3"></div>
             </div>
-            <div>
-                <h3>USA Tour</h3>
-                <img src="images/usa-tour/usa1.jpg" alt="USA Tour 1" onclick="openModal('images/usa-tour/usa1.jpg')">
-                <img src="images/usa-tour/usa2.jpg" alt="USA Tour 2" onclick="openModal('images/usa-tour/usa2.jpg')">
-                <img src="images/usa-tour/usa3.jpg" alt="USA Tour 3" onclick="openModal('images/usa-tour/usa3.jpg')">
-                <img src="images/usa-tour/usa4.jpg" alt="USA Tour 4" onclick="openModal('images/usa-tour/usa4.jpg')">
-                <img src="images/usa-tour/usa5.jpg" alt="USA Tour 5" onclick="openModal('images/usa-tour/usa5.jpg')">
-            </div>
-            <div>
-                <h3>Rehearsals</h3>
-                <img src="images/rehearsals/rehearsal1.jpg" alt="Rehearsals 1" onclick="openModal('images/rehearsals/rehearsal1.jpg')">
-                <img src="images/rehearsals/rehearsal2.jpg" alt="Rehearsals 2" onclick="openModal('images/rehearsals/rehearsal2.jpg')">
-                <img src="images/rehearsals/rehearsal3.jpg" alt="Rehearsals 3" onclick="openModal('images/rehearsals/rehearsal3.jpg')">
-                <img src="images/rehearsals/rehearsal4.jpg" alt="Rehearsals 4" onclick="openModal('images/rehearsals/rehearsal4.jpg')">
-                <img src="images/rehearsals/rehearsal5.jpg" alt="Rehearsals 5" onclick="openModal('images/rehearsals/rehearsal5.jpg')">
-            </div>
-            <div>
-                <h3>Autumn</h3>
-                <img src="images/autumn/autumn1.jpg" alt="Autumn 1" onclick="openModal('images/autumn/autumn1.jpg')">
-                <img src="images/autumn/autumn2.jpg" alt="Autumn 2" onclick="openModal('images/autumn/autumn2.jpg')">
-                <img src="images/autumn/autumn3.jpg" alt="Autumn 3" onclick="openModal('images/autumn/autumn3.jpg')">
-                <img src="images/autumn/autumn4.jpg" alt="Autumn 4" onclick="openModal('images/autumn/autumn4.jpg')">
-                <img src="images/autumn/autumn5.jpg" alt="Autumn 5" onclick="openModal('images/autumn/autumn5.jpg')">
-            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
-    <!-- Модальное окно -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg" onclick="toggleEnlarge()">
+        <img class="modal-content" id="modalImg">
     </div>
 
     <section id="videos">
         <h2>Videos</h2>
         <div class="video-gallery">
-            <iframe src="https://www.youtube.com/embed/bpZ6C31qPdQ"
+            <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/1spGo3knZZY" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/lTqsUJ1V_KY" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/fQhTCSxKfk0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/3BLwpTTi0uo" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/Yu1j00Nrku8" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/Tm7YoPbb7ZU" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
+            <a href="https://www.youtube.com/denbaurin" target="_blank">🎥 YouTube</a>
+            <a href="https://twitter.com/denbaurin" target="_blank">🐦 Twitter</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Swiper initialization
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Modal functionality
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Scroll animations
+        const sections = document.querySelectorAll('section');
+        const header = document.querySelector('header');
+
+        const checkVisibility = () => {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) {
+                    section.classList.add('visible');
+                }
+            });
+
+            const headerRect = header.getBoundingClientRect();
+            if (headerRect.top < window.innerHeight * 0.8) {
+                header.classList.add('visible');
+            }
+        };
+
+        window.addEventListener('scroll', checkVisibility);
+        checkVisibility(); // Initial check
+    </script>
+</body>
+</html>
