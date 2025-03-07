@@ -13,80 +13,28 @@
             background: #fff;
             color: #000;
             overflow-x: hidden;
-            text-align: center;
-        }
-
-        nav {
-            font-size: 1.2em;
-            display: flex;
-            justify-content: center;
-            background: #000;
-            padding: 15px 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-        }
-
-        nav a:hover {
-            color: #007bff;
-        }
-
-        .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .gallery-item img {
-            width: 150px;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            border-radius: 10px;
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.05);
-        }
-
-        section {
-            padding: 50px 15px;
-            text-align: center;
-        }
-
-        .music-player iframe {
-            width: 300px;
-            height: 380px;
-            border: none;
-        }
-
-        .video-gallery {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .video-gallery iframe {
-            width: 45%;
-            height: 200px;
-            border-radius: 10px;
-            margin: 10px 0;
         }
 
         header {
             position: relative;
+            height: 100vh;
+            text-align: center;
+            color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        header .background img {
+        header .background {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;  /* Ensure image is fully visible */
+            height: 100%;
+            background: url('Problembo.jpg') no-repeat center center/cover;
+            z-index: -1;
         }
 
         .header-text {
@@ -94,11 +42,81 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            color: #fff;
-            font-size: 2em;
+            text-align: center;
         }
 
-        /* Modal styles for image enlargement */
+        .header-text h1 {
+            font-size: 6em;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
+            margin-bottom: 10px;
+        }
+
+        .header-text p {
+            font-size: 2em;
+            font-weight: 400;
+            color: #fff;
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            font-size: 1.2em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        section {
+            padding: 50px 15px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-section img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -116,11 +134,6 @@
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .modal-content.enlarged {
-            transform: scale(1.5); /* Enlarge by 50% */
         }
 
         .close {
@@ -137,10 +150,143 @@
             color: #ccc;
         }
 
+        .music-player {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .video-gallery iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .news-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .news-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-section li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .news-section a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .news-section a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 4em;
+            }
+
+            .header-text p {
+                font-size: 1.5em;
+            }
+
+            nav a {
+                font-size: 1.2em;
+                margin: 0 10px;
+            }
+
+            section {
+                padding: 30px 10px;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            .gallery-section, .video-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .video-gallery iframe {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 3em;
+            }
+
+            .header-text p {
+                font-size: 1.2em;
+            }
+
+            nav a {
+                font-size: 1em;
+                margin: 0 5px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            .gallery-section, .video-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .video-gallery iframe {
+                height: 120px;
+            }
+        }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="#about">About</a>
         <a href="#news">News</a>
@@ -151,21 +297,23 @@
     </nav>
 
     <header>
-        <div class="background">
-            <img src="main-photo.jpg" alt="DEN BAURIN">
-        </div>
+        <div class="background"></div>
         <div class="header-text">
             <h1>DEN BAURIN</h1>
             <p>Music that inspires. Explore. Enjoy.</p>
         </div>
     </header>
 
-    <section id="news">
+    <section id="about">
+        <h2>About Me</h2>
+        <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
+    </section>
+
+    <section id="news" class="news-section">
         <h2>News</h2>
         <ul>
             <li><a href="https://www.wicz.com/story/52459875/den-baurins-freelove-eurovision-2025-audition-song-already-on-radio-worldwide" target="_blank">Den Baurin's "Free Love" Eurovision 2025 audition song already on radio worldwide</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest - Den Baurin "Moonlight" Premiere</a></li>
-            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-conquering-eurovision-2025-in-san-marino.html" target="_blank">Den Baurin conquering Eurovision 2025 in San Marino</a></li>
             <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-releases-heartwarming-holiday-single-christmas-magic.html" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
             <li><a href="https://canvasrebel.com/meet-den-baurin/" target="_blank">Meet Den Baurin - Interview with CanvasRebel</a></li>
@@ -181,26 +329,45 @@
 
     <section id="gallery">
         <h2>Gallery</h2>
-        <div class="gallery-container">
-            <div class="gallery-item">
+        <div class="gallery-section">
+            <div>
                 <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="laima1.jpg" alt="Laima 1" onclick="openModal('laima1.jpg')">
-                <img src="laima2.jpg" alt="Laima 2" onclick="openModal('laima2.jpg')">
-                <img src="laima3.jpg" alt="Laima 3" onclick="openModal('laima3.jpg')">
-                <img src="laima4.jpg" alt="Laima 4" onclick="openModal('laima4.jpg')">
-                <img src="laima5.jpg" alt="Laima 5" onclick="openModal('laima5.jpg')">
+                <img src="laima3.jpg" alt="Laima 1" onclick="openModal('laima3.jpg')">
+                <img src="laima7.jpg" alt="Laima 2" onclick="openModal('laima7.jpg')">
+                <img src="laima8.JPG" alt="Laima 3" onclick="openModal('laima8.JPG')">
             </div>
-            <div class="gallery-item">
+            <div>
                 <h3>USA Tour</h3>
-                <img src="usa1.jpg" alt="USA 1" onclick="openModal('usa1.jpg')">
-                <img src="usa2.jpg" alt="USA 2" onclick="openModal('usa2.jpg')">
-                <img src="usa3.jpg" alt="USA 3" onclick="openModal('usa3.jpg')">
-                <img src="usa4.jpg" alt="USA 4" onclick="openModal('usa4.jpg')">
-                <img src="usa5.jpg" alt="USA 5" onclick="openModal('usa5.jpg')">
+                <img src="ukraine1.JPG" alt="USA Tour 1" onclick="openModal('ukraine1.JPG')">
+                <img src="ukraine2.JPG" alt="USA Tour 2" onclick="openModal('ukraine2.JPG')">
+                <img src="ukraine5.JPG" alt="USA Tour 3" onclick="openModal('ukraine5.JPG')">
             </div>
-            <!-- Repeat similarly for other sections -->
+            <div>
+                <h3>Rehearsals</h3>
+                <img src="Repetitions1.JPG" alt="Rehearsals 1" onclick="openModal('Repetitions1.JPG')">
+                <img src="Repetitions3.JPG" alt="Rehearsals 2" onclick="openModal('Repetitions3.JPG')">
+                <img src="Repetitions4.JPG" alt="Rehearsals 3" onclick="openModal('Repetitions4.JPG')">
+            </div>
+            <div>
+                <h3>Autumn</h3>
+                <img src="autumn1.jpg" alt="Autumn 1" onclick="openModal('autumn1.JPG')">
+                <img src="autumn2.jpg" alt="Autumn 2" onclick="openModal('autumn2.JPG')">
+                <img src="autumn3.jpg" alt="Autumn 3" onclick="openModal('autumn3.JPG')">
+            </div>
+            <div>
+                <h3>Magazines</h3>
+                <img src="magazine1.jpg" alt="Magazine 1" onclick="openModal('magazine1.JPG')">
+                <img src="magazine2.jpg" alt="Magazine 2" onclick="openModal('magazine2.JPG')">
+                <img src="magazine3.jpg" alt="Magazine 3" onclick="openModal('magazine3.JPG')">
+            </div>
         </div>
     </section>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
 
     <section id="videos">
         <h2>Videos</h2>
@@ -218,32 +385,29 @@
     <section id="contact">
         <h2>Contact</h2>
         <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
-        <p>
-            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">
-                <img src="instagram-icon.png" alt="Instagram" style="width:30px; height:30px;">
-            </a>
-        </p>
     </section>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
-    </div>
+    <footer>
+        <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
+        </div>
+    </footer>
 
     <script>
-        function openModal(imageSrc) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("modalImg");
+        // Функция для открытия модального окна
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
             modal.style.display = "flex";
-            modalImg.src = imageSrc;
+            modalImg.src = src;
         }
 
+        // Функция для закрытия модального окна
         function closeModal() {
-            var modal = document.getElementById("myModal");
+            const modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
     </script>
-
 </body>
 </html>
