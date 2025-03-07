@@ -48,6 +48,7 @@
         .back-link a:hover {
             text-decoration: underline;
         }
+        /* Стили для модального окна */
         .modal {
             display: none;
             position: fixed;
@@ -61,9 +62,9 @@
             align-items: center;
         }
         .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
         .close {
             position: absolute;
@@ -82,9 +83,16 @@
 <body>
     <h2>Laima Rendezvous Jurmala 2024</h2>
     <div class="photo-gallery">
-        <img src="images/laima3.jpg" alt="Laima 1" onclick="openModal('images/laima3.jpg')">
+        <img src="images/laima1.jpg" alt="Laima 1" onclick="openModal('images/laima1.jpg')">
+        <img src="images/laima2.jpg" alt="Laima 2" onclick="openModal('images/laima2.jpg')">
+        <img src="images/laima3.jpg" alt="Laima 3" onclick="openModal('images/laima3.jpg')">
+        <img src="images/laima4.jpg" alt="Laima 4" onclick="openModal('images/laima4.jpg')">
+        <img src="images/laima5.jpg" alt="Laima 5" onclick="openModal('images/laima5.jpg')">
+        <img src="images/laima6.jpg" alt="Laima 1" onclick="openModal('images/laima6.jpg')">
         <img src="images/laima7.jpg" alt="Laima 2" onclick="openModal('images/laima7.jpg')">
         <img src="images/laima8.jpg" alt="Laima 3" onclick="openModal('images/laima8.jpg')">
+        <img src="images/laima9.jpg" alt="Laima 4" onclick="openModal('images/laima9.jpg')">
+        <img src="images/laima10.jpg" alt="Laima 5" onclick="openModal('images/laima10.jpg')">
     </div>
     <div class="back-link">
         <a href="index.html#gallery">← Back to Gallery</a>
@@ -97,6 +105,7 @@
     </div>
 
     <script>
+        // Функция для открытия модального окна
         function openModal(src) {
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("modalImg");
@@ -104,11 +113,13 @@
             modalImg.src = src;
         }
 
+        // Функция для закрытия модального окна
         function closeModal() {
             const modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
 
+        // Закрытие модального окна при клике вне изображения
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
             if (event.target == modal) {
