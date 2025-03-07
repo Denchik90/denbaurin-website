@@ -104,96 +104,27 @@
             padding: 20px;
         }
 
-        .gallery-section img {
-            width: 100%;
-            height: 200px; /* Фиксированная высота */
-            object-fit: cover; /* Обрезка изображения для сохранения пропорций */
+        .folder {
+            background: #f4f4f4;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
             transition: transform 0.3s ease;
         }
 
-        .gallery-section img:hover {
+        .folder:hover {
             transform: scale(1.05);
         }
 
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #ccc;
-        }
-
-        .music-player {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .video-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .video-gallery iframe {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-        }
-
-        .news-section {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .news-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .news-section li {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-
-        .news-section a {
+        .folder a {
             text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
+            color: #000;
         }
 
-        .news-section a:hover {
-            text-decoration: underline;
+        .folder h3 {
+            font-size: 1.5em;
+            margin: 0;
         }
 
         footer {
@@ -251,12 +182,8 @@
                 font-size: 2em;
             }
 
-            .gallery-section, .video-gallery {
+            .gallery-section {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-
-            .video-gallery iframe {
-                height: 150px;
             }
         }
 
@@ -278,12 +205,8 @@
                 font-size: 1.8em;
             }
 
-            .gallery-section, .video-gallery {
+            .gallery-section {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .video-gallery iframe {
-                height: 120px;
             }
         }
     </style>
@@ -332,44 +255,33 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="gallery-section">
-            <div>
-                <h3>Laima Rendezvous Jurmala 2024</h3>
-                <img src="laima3.jpg" alt="Laima 1" onclick="openModal('laima3.jpg')">
-                <img src="laima7.jpg" alt="Laima 2" onclick="openModal('laima7.jpg')">
-                <img src="laima8.JPG" alt="Laima 3" onclick="openModal('laima8.JPG')">
+            <div class="folder">
+                <a href="laima-rendezvous.html">
+                    <h3>Laima Rendezvous Jurmala 2024</h3>
+                </a>
             </div>
-            <div>
-                <h3>USA Tour</h3>
-                <img src="ukraine1.JPG" alt="USA Tour 1" onclick="openModal('ukraine1.JPG')">
-                <img src="ukraine2.JPG" alt="USA Tour 2" onclick="openModal('ukraine2.JPG')">
-                <img src="ukraine5.JPG" alt="USA Tour 3" onclick="openModal('ukraine5.JPG')">
+            <div class="folder">
+                <a href="usa-tour.html">
+                    <h3>USA Tour</h3>
+                </a>
             </div>
-            <div>
-                <h3>Rehearsals</h3>
-                <img src="Repetitions1.JPG" alt="Rehearsals 1" onclick="openModal('Repetitions1.JPG')">
-                <img src="Repetitions3.JPG" alt="Rehearsals 2" onclick="openModal('Repetitions3.JPG')">
-                <img src="Repetitions4.JPG" alt="Rehearsals 3" onclick="openModal('Repetitions4.JPG')">
+            <div class="folder">
+                <a href="rehearsals.html">
+                    <h3>Rehearsals</h3>
+                </a>
             </div>
-            <div>
-                <h3>Autumn</h3>
-                <img src="autumn1.jpg" alt="Autumn 1" onclick="openModal('autumn1.JPG')">
-                <img src="autumn2.jpg" alt="Autumn 2" onclick="openModal('autumn2.JPG')">
-                <img src="autumn3.jpg" alt="Autumn 3" onclick="openModal('autumn3.JPG')">
+            <div class="folder">
+                <a href="autumn.html">
+                    <h3>Autumn</h3>
+                </a>
             </div>
-            <div>
-                <h3>Magazines</h3>
-                <img src="magazine1.jpg" alt="Magazine 1" onclick="openModal('magazine1.JPG')">
-                <img src="magazine2.jpg" alt="Magazine 2" onclick="openModal('magazine2.JPG')">
-                <img src="magazine3.jpg" alt="Magazine 3" onclick="openModal('magazine3.JPG')">
+            <div class="folder">
+                <a href="magazines.html">
+                    <h3>Magazines</h3>
+                </a>
             </div>
         </div>
     </section>
-
-    <!-- Модальное окно -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
-    </div>
 
     <section id="videos">
         <h2>Videos</h2>
@@ -395,8 +307,5 @@
             <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
         </div>
     </footer>
-
-    <script>
-        // Функция для открытия модального окна
-        function openModal(src) {
-            const modal =
+</body>
+</html>
