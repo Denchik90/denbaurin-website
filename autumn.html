@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autumn</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fff;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .photo-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+        }
+        .back-link {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.2em;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h2>Autumn</h2>
+    <div class="photo-gallery">
+        <img src="images/autumn1.jpg" alt="Autumn 1" onclick="openModal('images/autumn1.jpg')">
+        <img src="images/autumn2.jpg" alt="Autumn 2" onclick="openModal('images/autumn2.jpg')">
+        <img src="images/autumn3.jpg" alt="Autumn 3" onclick="openModal('images/autumn3.jpg')">
+        <img src="images/autumn4.jpg" alt="Autumn 2" onclick="openModal('images/autumn4.jpg')">
+        <img src="images/autumn5.jpg" alt="Autumn 3" onclick="openModal('images/autumn5.jpg')">
+        <!-- Добавьте больше фотографий, если нужно -->
+    </div>
+    <div class="back-link">
+        <a href="index.html#gallery">← Back to Gallery</a>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        // Функция для открытия модального окна
+        function openModal(src) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+
+        // Функция для закрытия модального окна
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Закрытие модального окна при клике вне изображения
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
