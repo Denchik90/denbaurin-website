@@ -78,6 +78,22 @@
         .close:hover {
             color: #ccc;
         }
+        .download-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -99,6 +115,7 @@
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImg">
+        <a id="downloadLink" class="download-btn" download>Download</a>
     </div>
 
     <script>
@@ -106,8 +123,10 @@
         function openModal(src) {
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("modalImg");
+            const downloadLink = document.getElementById("downloadLink");
             modal.style.display = "flex";
             modalImg.src = src;
+            downloadLink.href = src; // Устанавливаем ссылку для скачивания
         }
 
         // Функция для закрытия модального окна
