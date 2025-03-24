@@ -326,6 +326,12 @@
                 padding: 12px 12px 45px;
             }
         }
+
+        /* Fallback для не загруженных изображений */
+        .folder-cover[data-image-loaded="false"] {
+            background-image: url('images/placeholder.jpg') !important;
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -380,43 +386,60 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="polaroid-gallery">
-            <!-- Динамические обложки папок -->
-            <div class="folder-cover" data-folder="laima-rendezvous" data-first-image="laima1.jpg">
+            <!-- Laima Rendezvous -->
+            <div class="folder-cover" 
+                 style="background-image: url('images/gallery/laima1.jpg')"
+                 onclick="window.location.href='laima-rendezvous.html'">
                 <div class="polaroid-content">
                     <h3>Laima Rendezvous</h3>
                     <p>Jurmala 2024</p>
                 </div>
             </div>
             
-            <div class="folder-cover" data-folder="usa-tour" data-first-image="usa-tour1.jpg">
+            <!-- USA Tour -->
+            <div class="folder-cover" 
+                 style="background-image: url('images/gallery/usa-tour1.jpg')"
+                 onclick="window.location.href='usa-tour.html'">
                 <div class="polaroid-content">
                     <h3>USA Tour</h3>
                     <p>2023-2024</p>
                 </div>
             </div>
             
-            <div class="folder-cover" data-folder="sound-check" data-first-image="sound-check1.jpg">
+            <!-- Sound Check -->
+            <div class="folder-cover" 
+                 style="background-image: url('images/gallery/sound-check1.jpg')"
+                 onclick="window.location.href='sound-check.html'">
                 <div class="polaroid-content">
                     <h3>Sound Check</h3>
                     <p>Behind the Scenes</p>
                 </div>
             </div>
             
-            <div class="folder-cover" data-folder="autumn" data-first-image="autumn1.jpg">
+            <!-- Autumn -->
+            <div class="folder-cover" 
+                 style="background-image: url('images/gallery/autumn1.jpg')"
+                 onclick="window.location.href='autumn.html'">
                 <div class="polaroid-content">
                     <h3>Autumn</h3>
                     <p>Seasonal Photoshoot</p>
                 </div>
             </div>
             
-            <div class="folder-cover" data-folder="magazines" data-first-image="magazine1.jpg">
+            <!-- Magazines -->
+            <div class="folder-cover" 
+                 style="background-image: url('images/gallery/magazine1.jpg')"
+                 onclick="window.location.href='magazines.html'">
                 <div class="polaroid-content">
                     <h3>Magazines</h3>
                     <p>Press Features</p>
                 </div>
             </div>
             
-            <div class="folder-cover" data-folder="awards" data-first-image="awards1.jpg">
+            <!-- Awards -->
+            <div class="folder-cover" 
+                 style="background-image: url('images/gallery/awards1.jpg')"
+                 onclick="window.location.href='awards.html'">
                 <div class="polaroid-content">
                     <h3>Awards</h3>
                     <p>Ceremonies & Honors</p>
@@ -454,37 +477,21 @@
     </footer>
 
     <script>
-    // Загружаем обложки для всех папок
-    document.addEventListener('DOMContentLoaded', () => {
+    // Проверка загрузки изображений обложек
+    document.addEventListener('DOMContentLoaded', function() {
         const folders = document.querySelectorAll('.folder-cover');
         
-        // Предопределенные пути к первым изображениям для каждой папки
-        const folderImages = {
-            'laima-rendezvous': 'images/gallery/laima1.jpg',
-            'usa-tour': 'images/gallery/usa-tour1.jpg',
-            'sound-check': 'images/gallery/sound-check1.jpg',
-            'autumn': 'images/gallery/autumn1.jpg',
-            'magazines': 'images/gallery/magazine1.jpg',
-            'awards': 'images/gallery/awards1.jpg'
-        };
-
         folders.forEach(folder => {
-            const folderName = folder.getAttribute('data-folder');
-            const firstImage = folder.getAttribute('data-first-image');
-            const imagePath = `images/gallery/${firstImage}`;
-            
-            // Устанавливаем фоновое изображение
-            folder.style.backgroundImage = `url('${imagePath}')`;
-            
-            // Добавляем ссылку на страницу папки
-            folder.onclick = () => window.location.href = `${folderName}.html`;
-            
-            // Добавляем обработчик ошибок загрузки изображения
             const img = new Image();
-            img.src = imagePath;
-            img.onerror = () => {
-                folder.style.backgroundImage = "url('images/placeholder.jpg')";
-                console.warn(`Failed to load image: ${imagePath}`);
+            img.src = folder.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+            
+            img.onload = function() {
+                folder.setAttribute('data-image-loaded', 'true');
+            };
+            
+            img.onerror = function() {
+                folder.setAttribute('data-image-loaded', 'false');
+                console.error('Error loading cover image:', img.src);
             };
         });
     });
