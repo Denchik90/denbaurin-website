@@ -107,7 +107,7 @@
             margin: 0 auto;
         }
         
-        .polaroid {
+        .folder-cover {
             background-size: cover;
             background-position: center;
             padding: 15px 15px 60px;
@@ -120,13 +120,14 @@
             color: white;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
             border-radius: 5px;
+            cursor: pointer;
         }
         
-        .polaroid:nth-child(even) {
+        .folder-cover:nth-child(even) {
             transform: rotate(2deg);
         }
         
-        .polaroid:hover {
+        .folder-cover:hover {
             transform: rotate(0deg) scale(1.05);
             box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 12px 25px rgba(0,0,0,0.22);
         }
@@ -141,14 +142,14 @@
             border-radius: 0 0 5px 5px;
         }
         
-        .polaroid h3 {
+        .polaroid-content h3 {
             font-family: 'Playfair Display', serif;
             margin: 0 0 5px;
             font-size: 1.3em;
             color: #fff;
         }
         
-        .polaroid p {
+        .polaroid-content p {
             font-size: 0.9em;
             color: #ddd;
             margin: 0;
@@ -284,7 +285,7 @@
                 gap: 20px;
             }
             
-            .polaroid {
+            .folder-cover {
                 height: 200px;
                 padding-bottom: 50px;
             }
@@ -321,7 +322,7 @@
                 gap: 25px;
             }
             
-            .polaroid {
+            .folder-cover {
                 padding: 12px 12px 45px;
             }
         }
@@ -379,53 +380,48 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="polaroid-gallery">
-            <!-- Laima Rendezvous -->
-            <a href="laima-rendezvous.html" class="polaroid" style="background-image: url('laima3.jpg')">
+            <!-- Динамические обложки папок -->
+            <div class="folder-cover" data-folder="laima-rendezvous" data-first-image="laima1.jpg">
                 <div class="polaroid-content">
                     <h3>Laima Rendezvous</h3>
                     <p>Jurmala 2024</p>
                 </div>
-            </a>
+            </div>
             
-            <!-- USA Tour -->
-            <a href="usa-tour.html" class="polaroid" style="background-image: url('ukraine1.JPG')">
+            <div class="folder-cover" data-folder="usa-tour" data-first-image="usa-tour1.jpg">
                 <div class="polaroid-content">
                     <h3>USA Tour</h3>
                     <p>2023-2024</p>
                 </div>
-            </a>
+            </div>
             
-            <!-- Sound Check - исправленный путь -->
-            <a href="sound-check.html" class="polaroid" style="background-image: url('sound-check1.jpg')">
+            <div class="folder-cover" data-folder="sound-check" data-first-image="sound-check1.jpg">
                 <div class="polaroid-content">
                     <h3>Sound Check</h3>
                     <p>Behind the Scenes</p>
                 </div>
-            </a>
+            </div>
             
-            <!-- Autumn -->
-            <a href="autumn.html" class="polaroid" style="background-image: url('autumn1.jpg')">
+            <div class="folder-cover" data-folder="autumn" data-first-image="autumn1.jpg">
                 <div class="polaroid-content">
                     <h3>Autumn</h3>
                     <p>Seasonal Photoshoot</p>
                 </div>
-            </a>
+            </div>
             
-            <!-- Magazines -->
-            <a href="magazines.html" class="polaroid" style="background-image: url('magazine1.jpg')">
+            <div class="folder-cover" data-folder="magazines" data-first-image="magazine1.jpg">
                 <div class="polaroid-content">
                     <h3>Magazines</h3>
                     <p>Press Features</p>
                 </div>
-            </a>
+            </div>
             
-            <!-- Awards - исправленный путь -->
-            <a href="awards.html" class="polaroid" style="background-image: url('awards1.jpg')">
+            <div class="folder-cover" data-folder="awards" data-first-image="awards1.jpg">
                 <div class="polaroid-content">
                     <h3>Awards</h3>
                     <p>Ceremonies & Honors</p>
                 </div>
-            </a>
+            </div>
         </div>
     </section>
 
@@ -456,5 +452,42 @@
         </div>
         <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
     </footer>
+
+    <script>
+    // Загружаем обложки для всех папок
+    document.addEventListener('DOMContentLoaded', () => {
+        const folders = document.querySelectorAll('.folder-cover');
+        
+        // Предопределенные пути к первым изображениям для каждой папки
+        const folderImages = {
+            'laima-rendezvous': 'images/gallery/laima1.jpg',
+            'usa-tour': 'images/gallery/usa-tour1.jpg',
+            'sound-check': 'images/gallery/sound-check1.jpg',
+            'autumn': 'images/gallery/autumn1.jpg',
+            'magazines': 'images/gallery/magazine1.jpg',
+            'awards': 'images/gallery/awards1.jpg'
+        };
+
+        folders.forEach(folder => {
+            const folderName = folder.getAttribute('data-folder');
+            const firstImage = folder.getAttribute('data-first-image');
+            const imagePath = `images/gallery/${firstImage}`;
+            
+            // Устанавливаем фоновое изображение
+            folder.style.backgroundImage = `url('${imagePath}')`;
+            
+            // Добавляем ссылку на страницу папки
+            folder.onclick = () => window.location.href = `${folderName}.html`;
+            
+            // Добавляем обработчик ошибок загрузки изображения
+            const img = new Image();
+            img.src = imagePath;
+            img.onerror = () => {
+                folder.style.backgroundImage = "url('images/placeholder.jpg')";
+                console.warn(`Failed to load image: ${imagePath}`);
+            };
+        });
+    });
+    </script>
 </body>
 </html>
