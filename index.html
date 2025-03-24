@@ -108,13 +108,18 @@
         }
         
         .polaroid {
-            background: white;
-            padding: 15px 15px 40px;
+            background-size: cover;
+            background-position: center;
+            padding: 15px 15px 60px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19);
             transform: rotate(-1deg);
             transition: all 0.3s ease;
             position: relative;
             text-align: center;
+            height: 250px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            border-radius: 5px;
         }
         
         .polaroid:nth-child(even) {
@@ -126,24 +131,27 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 12px 25px rgba(0,0,0,0.22);
         }
         
-        .polaroid img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border: 1px solid #eee;
+        .polaroid-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 0 0 5px 5px;
         }
         
         .polaroid h3 {
             font-family: 'Playfair Display', serif;
-            margin: 15px 0 5px;
+            margin: 0 0 5px;
             font-size: 1.3em;
-            color: #333;
+            color: #fff;
         }
         
         .polaroid p {
             font-size: 0.9em;
-            color: #666;
-            margin: 5px 0;
+            color: #ddd;
+            margin: 0;
         }
 
         /* Premiere Section */
@@ -275,6 +283,11 @@
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 20px;
             }
+            
+            .polaroid {
+                height: 200px;
+                padding-bottom: 50px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -309,7 +322,7 @@
             }
             
             .polaroid {
-                padding: 12px 12px 35px;
+                padding: 12px 12px 45px;
             }
         }
     </style>
@@ -366,40 +379,52 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="polaroid-gallery">
-            <a href="laima-rendezvous.html" class="polaroid">
-                <img src="laima-preview.jpg" alt="Laima Rendezvous">
-                <h3>Laima Rendezvous</h3>
-                <p>Jurmala 2024</p>
+            <!-- Laima Rendezvous -->
+            <a href="laima-rendezvous.html" class="polaroid" style="background-image: url('laima3.jpg')">
+                <div class="polaroid-content">
+                    <h3>Laima Rendezvous</h3>
+                    <p>Jurmala 2024</p>
+                </div>
             </a>
             
-            <a href="usa-tour.html" class="polaroid">
-                <img src="usa-tour-preview.jpg" alt="USA Tour">
-                <h3>USA Tour</h3>
-                <p>2023-2024</p>
+            <!-- USA Tour -->
+            <a href="usa-tour.html" class="polaroid" style="background-image: url('ukraine1.JPG')">
+                <div class="polaroid-content">
+                    <h3>USA Tour</h3>
+                    <p>2023-2024</p>
+                </div>
             </a>
             
-            <a href="sound-check.html" class="polaroid">
-                <img src="sound-check-preview.jpg" alt="Sound Check">
-                <h3>Sound Check</h3>
-                <p>Behind the Scenes</p>
+            <!-- Sound Check -->
+            <a href="sound-check.html" class="polaroid" style="background-image: url('Repetitions1.JPG')">
+                <div class="polaroid-content">
+                    <h3>Sound Check</h3>
+                    <p>Behind the Scenes</p>
+                </div>
             </a>
             
-            <a href="autumn.html" class="polaroid">
-                <img src="autumn-preview.jpg" alt="Autumn">
-                <h3>Autumn</h3>
-                <p>Seasonal Photoshoot</p>
+            <!-- Autumn -->
+            <a href="autumn.html" class="polaroid" style="background-image: url('autumn1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Autumn</h3>
+                    <p>Seasonal Photoshoot</p>
+                </div>
             </a>
             
-            <a href="magazines.html" class="polaroid">
-                <img src="magazine-preview.jpg" alt="Magazines">
-                <h3>Magazines</h3>
-                <p>Press Features</p>
+            <!-- Magazines -->
+            <a href="magazines.html" class="polaroid" style="background-image: url('magazine1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Magazines</h3>
+                    <p>Press Features</p>
+                </div>
             </a>
             
-            <a href="awards.html" class="polaroid">
-                <img src="awards-preview.jpg" alt="Awards">
-                <h3>Awards</h3>
-                <p>Ceremonies & Honors</p>
+            <!-- Awards -->
+            <a href="awards.html" class="polaroid" style="background-image: url('award1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Awards</h3>
+                    <p>Ceremonies & Honors</p>
+                </div>
             </a>
         </div>
     </section>
