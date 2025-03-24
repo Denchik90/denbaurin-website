@@ -97,34 +97,53 @@
             font-family: 'Playfair Display', serif;
         }
 
-        .gallery-section {
+        /* Polaroid Gallery Section */
+        .polaroid-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        .folder {
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+        .polaroid {
+            background: white;
+            padding: 15px 15px 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19);
+            transform: rotate(-1deg);
+            transition: all 0.3s ease;
+            position: relative;
             text-align: center;
-            transition: transform 0.3s ease;
         }
-
-        .folder:hover {
-            transform: scale(1.05);
+        
+        .polaroid:nth-child(even) {
+            transform: rotate(2deg);
         }
-
-        .folder a {
-            text-decoration: none;
-            color: #000;
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 12px 25px rgba(0,0,0,0.22);
         }
-
-        .folder h3 {
-            font-size: 1.5em;
-            margin: 0;
+        
+        .polaroid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+        
+        .polaroid h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 15px 0 5px;
+            font-size: 1.3em;
+            color: #333;
+        }
+        
+        .polaroid p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 5px 0;
         }
 
         /* Premiere Section */
@@ -159,39 +178,69 @@
             border-radius: 10px;
         }
 
+        /* News Section */
+        .news-section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-section li {
+            margin: 15px 0;
+            font-size: 1.2em;
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-section a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .news-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Music Player */
+        .music-player {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            font-size: 1.2em;
+        }
+
         footer {
             background: #000;
             color: #fff;
             text-align: center;
-            padding: 15px 0;
+            padding: 30px 0;
             margin-top: 30px;
         }
 
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         .social-icons {
-            margin: 10px 0;
+            margin: 20px 0;
         }
 
         .social-icons a {
             color: #fff;
-            margin: 0 10px;
-            font-size: 1.5em;
+            margin: 0 15px;
+            font-size: 1.8em;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .social-icons a:hover {
             color: #007bff;
         }
 
-        /* Media Queries for Responsiveness */
+        /* Media Queries */
         @media (max-width: 768px) {
             .header-text h1 {
                 font-size: 4em;
@@ -214,16 +263,17 @@
                 font-size: 2em;
             }
 
-            .gallery-section {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-
             .premiere-video iframe {
                 height: 350px;
             }
 
             .video-gallery iframe {
                 height: 150px;
+            }
+
+            .polaroid-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
             }
         }
 
@@ -245,16 +295,21 @@
                 font-size: 1.8em;
             }
 
-            .gallery-section {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
             .premiere-video iframe {
                 height: 250px;
             }
 
             .video-gallery iframe {
                 height: 120px;
+            }
+
+            .polaroid-gallery {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .polaroid {
+                padding: 12px 12px 35px;
             }
         }
     </style>
@@ -310,37 +365,42 @@
 
     <section id="gallery">
         <h2>Gallery</h2>
-        <div class="gallery-section">
-            <div class="folder">
-                <a href="laima-rendezvous.html">
-                    <h3>Laima Rendezvous Jurmala 2024</h3>
-                </a>
-            </div>
-            <div class="folder">
-                <a href="usa-tour.html">
-                    <h3>USA Tour</h3>
-                </a>
-            </div>
-            <div class="folder">
-                <a href="sound-check.html">
-                    <h3>Sound check</h3>
-                </a>
-            </div>
-            <div class="folder">
-                <a href="autumn.html">
-                    <h3>Autumn</h3>
-                </a>
-            </div>
-            <div class="folder">
-                <a href="magazines.html">
-                    <h3>Magazines</h3>
-                </a>
-            </div>
-            <div class="folder">
-                <a href="awards.html">
-                    <h3>Awards</h3>
-                </a>
-            </div>
+        <div class="polaroid-gallery">
+            <a href="laima-rendezvous.html" class="polaroid">
+                <img src="laima-preview.jpg" alt="Laima Rendezvous">
+                <h3>Laima Rendezvous</h3>
+                <p>Jurmala 2024</p>
+            </a>
+            
+            <a href="usa-tour.html" class="polaroid">
+                <img src="usa-tour-preview.jpg" alt="USA Tour">
+                <h3>USA Tour</h3>
+                <p>2023-2024</p>
+            </a>
+            
+            <a href="sound-check.html" class="polaroid">
+                <img src="sound-check-preview.jpg" alt="Sound Check">
+                <h3>Sound Check</h3>
+                <p>Behind the Scenes</p>
+            </a>
+            
+            <a href="autumn.html" class="polaroid">
+                <img src="autumn-preview.jpg" alt="Autumn">
+                <h3>Autumn</h3>
+                <p>Seasonal Photoshoot</p>
+            </a>
+            
+            <a href="magazines.html" class="polaroid">
+                <img src="magazine-preview.jpg" alt="Magazines">
+                <h3>Magazines</h3>
+                <p>Press Features</p>
+            </a>
+            
+            <a href="awards.html" class="polaroid">
+                <img src="awards-preview.jpg" alt="Awards">
+                <h3>Awards</h3>
+                <p>Ceremonies & Honors</p>
+            </a>
         </div>
     </section>
 
@@ -360,14 +420,16 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
         <div class="social-icons">
             <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
         </div>
+        <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
