@@ -127,6 +127,38 @@
             margin: 0;
         }
 
+        /* Premiere Section */
+        .premiere-section {
+            background-color: #f8f9fa;
+            padding: 50px 15px;
+            text-align: center;
+        }
+
+        .premiere-video {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .premiere-video iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+        }
+
+        /* Video Gallery */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .video-gallery iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
         footer {
             background: #000;
             color: #fff;
@@ -185,6 +217,14 @@
             .gallery-section {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
+
+            .premiere-video iframe {
+                height: 350px;
+            }
+
+            .video-gallery iframe {
+                height: 150px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -208,11 +248,20 @@
             .gallery-section {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
+
+            .premiere-video iframe {
+                height: 250px;
+            }
+
+            .video-gallery iframe {
+                height: 120px;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
+        <a href="#premiere">Premiere</a>
         <a href="#about">About</a>
         <a href="#news">News</a>
         <a href="#music">Music</a>
@@ -228,6 +277,13 @@
             <p>Music that inspires. Explore. Enjoy.</p>
         </div>
     </header>
+
+    <section id="premiere" class="premiere-section">
+        <h2>Premiere</h2>
+        <div class="premiere-video">
+            <iframe src="https://www.youtube.com/embed/sadOtBW-vrM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
 
     <section id="about">
         <h2>About Me</h2>
@@ -266,8 +322,8 @@
                 </a>
             </div>
             <div class="folder">
-                <a href="rehearsals.html">
-                    <h3>Rehearsals</h3>
+                <a href="sound-check.html">
+                    <h3>Sound check</h3>
                 </a>
             </div>
             <div class="folder">
@@ -280,12 +336,18 @@
                     <h3>Magazines</h3>
                 </a>
             </div>
+            <div class="folder">
+                <a href="awards.html">
+                    <h3>Awards</h3>
+                </a>
+            </div>
         </div>
     </section>
 
     <section id="videos">
         <h2>Videos</h2>
         <div class="video-gallery">
+            <iframe src="https://www.youtube.com/embed/sadOtBW-vrM" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/bpZ6C31qPdQ" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
