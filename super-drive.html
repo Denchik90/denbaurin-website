@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фестиваль Super Drive 2025 Barcelona | DEN BAURIN</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin: 30px 0;
+            color: #000;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 15px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background: #333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover img {
+            opacity: 0.9;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .modal-image {
+            max-width: 90%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .download-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #0056b3;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .gallery-item {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-image {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#gallery" class="back-button">← Назад к галерее</a>
+        <h1>Фестиваль Super Drive 2025 Barcelona</h1>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="gallery/super-drive/01.jpg" alt="Фестиваль Super Drive 1" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/02.jpg" alt="Фестиваль Super Drive 2" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/03.jpg" alt="Фестиваль Super Drive 3" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/04.jpg" alt="Фестиваль Super Drive 4" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/05.jpg" alt="Фестиваль Super Drive 5" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/06.jpg" alt="Фестиваль Super Drive 6" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/07.jpg" alt="Фестиваль Super Drive 7" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/08.jpg" alt="Фестиваль Super Drive 8" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/09.jpg" alt="Фестиваль Super Drive 9" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/super-drive/10.jpg" alt="Фестиваль Super Drive 10" onclick="openModal(this)">
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для просмотра изображений -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <button class="download-btn" onclick="downloadImage()">Скачать изображение</button>
+        </div>
+    </div>
+
+    <script>
+        // Открытие модального окна
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            
+            // Сохраняем ссылку на текущее изображение для скачивания
+            modalImg.dataset.downloadUrl = img.src;
+        }
+
+        // Закрытие модального окна
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // Закрытие при клике вне изображения
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Скачивание изображения
+        function downloadImage() {
+            const imgSrc = document.getElementById('modalImage').src;
+            const imgAlt = document.getElementById('modalImage').alt;
+            const link = document.createElement('a');
+            link.href = imgSrc;
+            link.download = imgAlt.replace(/\s+/g, '_').toLowerCase() + '.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
