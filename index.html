@@ -3,122 +3,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Концерт в Варшаве 2024</title>
+    <title>DEN BAURIN - Official Website</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
         body {
-            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            font-family: 'Roboto', sans-serif, Arial, Helvetica;
             background: #fff;
             color: #000;
-            margin: 0;
-            padding: 0;
+            overflow-x: hidden;
         }
-        h2 {
+
+        header {
+            position: relative;
+            height: 100vh;
             text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin: 20px 0;
+            color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-        .photo-gallery {
+
+        header .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Problembo.jpg') no-repeat center center/cover;
+            z-index: -1;
+        }
+
+        .header-text {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .header-text h1 {
+            font-size: 6em;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
+            margin-bottom: 10px;
+        }
+
+        .header-text p {
+            font-size: 2em;
+            font-weight: 400;
+            color: #fff;
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            font-size: 1.2em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        section {
+            padding: 50px 15px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Polaroid Gallery Section */
+        .polaroid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .polaroid {
+            background-size: cover;
+            background-position: center;
+            padding: 15px 15px 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19);
+            transform: rotate(-1deg);
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+            height: 250px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            border-radius: 5px;
+        }
+        
+        .polaroid:nth-child(even) {
+            transform: rotate(2deg);
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 12px 25px rgba(0,0,0,0.22);
+        }
+        
+        .polaroid-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .polaroid h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0 0 5px;
+            font-size: 1.3em;
+            color: #fff;
+        }
+        
+        .polaroid p {
+            font-size: 0.9em;
+            color: #ddd;
+            margin: 0;
+        }
+
+        /* Premiere Section */
+        .premiere-section {
+            background-color: #f8f9fa;
+            padding: 50px 15px;
+            text-align: center;
+        }
+
+        .premiere-video {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .premiere-video iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+        }
+
+        /* Video Gallery */
+        .video-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 20px;
         }
-        .photo-gallery img {
+
+        .video-gallery iframe {
             width: 100%;
             height: 200px;
-            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.3s ease;
         }
-        .photo-gallery img:hover {
-            transform: scale(1.05);
+
+        /* News Section */
+        .news-section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .back-link {
-            text-align: center;
-            margin: 20px 0;
+
+        .news-section li {
+            margin: 15px 0;
+            font-size: 1.2em;
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
         }
-        .back-link a {
+
+        .news-section a {
             text-decoration: none;
             color: #007bff;
-            font-size: 1.2em;
+            font-weight: bold;
         }
-        .back-link a:hover {
+
+        .news-section a:hover {
             text-decoration: underline;
         }
-        /* Стили для модального окна */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+
+        /* Music Player */
+        .music-player {
+            display: flex;
             justify-content: center;
-            align-items: center;
+            padding: 20px;
         }
-        .modal-content {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+
+        /* Contact Section */
+        .contact-info {
+            font-size: 1.2em;
         }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
+
+        footer {
+            background: #000;
             color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 30px;
         }
-        .close:hover {
-            color: #ccc;
+
+        .social-icons {
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1.8em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 4em;
+            }
+
+            .header-text p {
+                font-size: 1.5em;
+            }
+
+            nav a {
+                font-size: 1.2em;
+                margin: 0 10px;
+            }
+
+            section {
+                padding: 30px 10px;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            .premiere-video iframe {
+                height: 350px;
+            }
+
+            .video-gallery iframe {
+                height: 150px;
+            }
+
+            .polaroid-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .polaroid {
+                height: 200px;
+                padding-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 3em;
+            }
+
+            .header-text p {
+                font-size: 1.2em;
+            }
+
+            nav a {
+                font-size: 1em;
+                margin: 0 5px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            .premiere-video iframe {
+                height: 250px;
+            }
+
+            .video-gallery iframe {
+                height: 120px;
+            }
+
+            .polaroid-gallery {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .polaroid {
+                padding: 12px 12px 45px;
+            }
         }
     </style>
 </head>
 <body>
-    <h2>Концерт в Варшаве 2024</h2>
-    <div class="photo-gallery">
-        <img src="images/warsaw1.jpg" alt="Концерт в Варшаве 1" onclick="openModal('images/warsaw1.jpg')">
-        <img src="images/warsaw2.jpg" alt="Концерт в Варшаве 2" onclick="openModal('images/warsaw2.jpg')">
-        <img src="images/warsaw3.jpg" alt="Концерт в Варшаве 3" onclick="openModal('images/warsaw3.jpg')">
-        <img src="images/warsaw4.jpg" alt="Концерт в Варшаве 4" onclick="openModal('images/warsaw4.jpg')">
-        <img src="images/warsaw5.jpg" alt="Концерт в Варшаве 5" onclick="openModal('images/warsaw5.jpg')">
-        <img src="images/warsaw6.jpg" alt="Концерт в Варшаве 6" onclick="openModal('images/warsaw6.jpg')">
-    </div>
-    <div class="back-link">
-        <a href="index.html#gallery">← Back to Gallery</a>
-    </div>
+    <nav>
+        <a href="#premiere">Premiere</a>
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#music">Music</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <!-- Модальное окно -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
-    </div>
+    <header>
+        <div class="background"></div>
+        <div class="header-text">
+            <h1>DEN BAURIN</h1>
+            <p>Music that inspires. Explore. Enjoy.</p>
+        </div>
+    </header>
 
-    <script>
-        function openModal(src) {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("modalImg");
-            modal.style.display = "flex";
-            modalImg.src = src;
-        }
+    <section id="premiere" class="premiere-section">
+        <h2>Premiere</h2>
+        <div class="premiere-video">
+            <iframe src="https://www.youtube.com/embed/sadOtBW-vrM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
 
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
+    <section id="about">
+        <h2>About Me</h2>
+        <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
+    </section>
 
-        window.onclick = function(event) {
-            const modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
+    <section id="news" class="news-section">
+        <h2>News</h2>
+        <ul>
+            <li><a href="https://www.wicz.com/story/52459875/den-baurins-freelove-eurovision-2025-audition-song-already-on-radio-worldwide" target="_blank">Den Baurin's "Free Love" Eurovision 2025 audition song already on radio worldwide</a></li>
+            <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest - Den Baurin "Moonlight" Premiere</a></li>
+            <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
+            <li><a href="https://www.dailymusicroll.com/latest-news/den-baurin-releases-heartwarming-holiday-single-christmas-magic.html" target="_blank">Den Baurin releases heartwarming holiday single "Christmas Magic"</a></li>
+            <li><a href="https://canvasrebel.com/meet-den-baurin/" target="_blank">Meet Den Baurin - Interview with CanvasRebel</a></li>
+        </ul>
+    </section>
+
+    <section id="music">
+        <h2>Music</h2>
+        <div class="music-player">
+            <iframe src="https://open.spotify.com/embed/artist/7ExDLUrSU5JolcpRRnFmGE" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="polaroid-gallery">
+            <!-- Laima Rendezvous -->
+            <a href="laima-rendezvous.html" class="polaroid" style="background-image: url('laima3.jpg')">
+                <div class="polaroid-content">
+                    <h3>Laima Rendezvous</h3>
+                    <p>Jurmala 2024</p>
+                </div>
+            </a>
+            
+            <!-- USA Tour -->
+            <a href="usa-tour.html" class="polaroid" style="background-image: url('ukraine1.JPG')">
+                <div class="polaroid-content">
+                    <h3>USA Tour</h3>
+                    <p>2023-2024</p>
+                </div>
+            </a>
+            
+            <!-- Sound Check -->
+            <a href="sound-check.html" class="polaroid" style="background-image: url('sound-check1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Sound Check</h3>
+                    <p>Behind the Scenes</p>
+                </div>
+            </a>
+            
+            <!-- Autumn -->
+            <a href="autumn.html" class="polaroid" style="background-image: url('autumn1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Autumn</h3>
+                    <p>Seasonal Photoshoot</p>
+                </div>
+            </a>
+            
+            <!-- Magazines -->
+            <a href="magazines.html" class="polaroid" style="background-image: url('magazine1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Magazines</h3>
+                    <p>Press Features</p>
+                </div>
+            </a>
+            
+            <!-- Awards -->
+            <a href="awards.html" class="polaroid" style="background-image: url('awards1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Awards</h3>
+                    <p>Ceremonies & Honors</p>
+                </div>
+            </a>
+
+            <!-- Концерт в Варшаве -->
+            <a href="warsaw-concert.html" class="polaroid" style="background-image: url('warsaw1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Концерт в Варшаве</h3>
+                    <p>2024</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2>Videos</h2>
+        <div class="video-gallery">
+            <iframe src="https://www.youtube.com/embed/sadOtBW-vrM" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/bpZ6C31qPdQ" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/U1JPlIThRfA" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/08qiOYW2A_0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/cWAzXMHGwVE" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/1spGo3knZZY" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/lTqsUJ1V_KY" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/fQhTCSxKfk0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/denbaurin.music/" target="_blank">📷 Instagram</a>
+        </div>
+        <p>© 2025 DEN BAURIN. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
