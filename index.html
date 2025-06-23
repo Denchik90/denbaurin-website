@@ -163,11 +163,11 @@
             margin: 0 auto;
         }
 
-        .album-photos h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
+        .photos-loading {
             text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #666;
         }
 
         .photos-grid {
@@ -446,66 +446,66 @@
         <h2>Gallery</h2>
         <div class="album-gallery">
             <!-- Album 1: Laima Rendezvous -->
-            <div class="album" style="background-image: url('gallery/laima/1.jpg')" onclick="openAlbum('laima')">
+            <div class="album" style="background-image: url('gallery/laima/cover.jpg')" onclick="openAlbum('laima')">
                 <div class="album-content">
                     <h3>Laima Rendezvous</h3>
-                    <p>10 photos | Jurmala 2024</p>
+                    <p>Jurmala 2024</p>
                 </div>
             </div>
             
             <!-- Album 2: USA Tour -->
-            <div class="album" style="background-image: url('gallery/usa-tour/1.jpg')" onclick="openAlbum('usa-tour')">
+            <div class="album" style="background-image: url('gallery/usa-tour/cover.jpg')" onclick="openAlbum('usa-tour')">
                 <div class="album-content">
                     <h3>USA Tour</h3>
-                    <p>12 photos | 2024</p>
+                    <p>2024</p>
                 </div>
             </div>
             
             <!-- Album 3: Sound Check -->
-            <div class="album" style="background-image: url('gallery/sound-check/1.jpg')" onclick="openAlbum('sound-check')">
+            <div class="album" style="background-image: url('gallery/sound-check/cover.jpg')" onclick="openAlbum('sound-check')">
                 <div class="album-content">
                     <h3>Sound Check</h3>
-                    <p>5 photos | Behind the Scenes</p>
+                    <p>Behind the Scenes</p>
                 </div>
             </div>
             
             <!-- Album 4: Autumn -->
-            <div class="album" style="background-image: url('gallery/autumn/1.jpg')" onclick="openAlbum('autumn')">
+            <div class="album" style="background-image: url('gallery/autumn/cover.jpg')" onclick="openAlbum('autumn')">
                 <div class="album-content">
                     <h3>Autumn</h3>
-                    <p>5 photos | Seasonal Photoshoot</p>
+                    <p>Seasonal Photoshoot</p>
                 </div>
             </div>
             
             <!-- Album 5: Magazines -->
-            <div class="album" style="background-image: url('gallery/magazine/1.jpg')" onclick="openAlbum('magazine')">
+            <div class="album" style="background-image: url('gallery/magazine/cover.jpg')" onclick="openAlbum('magazine')">
                 <div class="album-content">
                     <h3>Magazines</h3>
-                    <p>8 photos | Press Features</p>
+                    <p>Press Features</p>
                 </div>
             </div>
             
             <!-- Album 6: Awards -->
-            <div class="album" style="background-image: url('gallery/awards/1.jpg')" onclick="openAlbum('awards')">
+            <div class="album" style="background-image: url('gallery/awards/cover.jpg')" onclick="openAlbum('awards')">
                 <div class="album-content">
                     <h3>Awards</h3>
-                    <p>5 photos | Ceremonies & Honors</p>
+                    <p>Ceremonies & Honors</p>
                 </div>
             </div>
 
             <!-- Album 7: Warsaw Concert -->
-            <div class="album" style="background-image: url('gallery/warsaw/1.jpg')" onclick="openAlbum('warsaw')">
+            <div class="album" style="background-image: url('gallery/warsaw/cover.jpg')" onclick="openAlbum('warsaw')">
                 <div class="album-content">
                     <h3>Концерт в Варшаве</h3>
-                    <p>10 photos | 2025</p>
+                    <p>2025</p>
                 </div>
             </div>
 
             <!-- Album 8: Super Drive -->
-            <div class="album" style="background-image: url('gallery/super-drive/1.jpg')" onclick="openAlbum('super-drive')">
+            <div class="album" style="background-image: url('gallery/super-drive/cover.jpg')" onclick="openAlbum('super-drive')">
                 <div class="album-content">
                     <h3>Фестиваль Super Drive</h3>
-                    <p>10 photos | Barselona 2025</p>
+                    <p>Barselona 2025</p>
                 </div>
             </div>
         </div>
@@ -513,48 +513,56 @@
         <!-- Album Photos Sections -->
         <div id="laimaPhotos" class="album-photos">
             <h3>Laima Rendezvous - Jurmala 2024</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="laimaGrid"></div>
             <button class="back-button" onclick="closeAlbum('laima')">Back to Gallery</button>
         </div>
 
         <div id="usa-tourPhotos" class="album-photos">
             <h3>USA Tour - 2024</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="usa-tourGrid"></div>
             <button class="back-button" onclick="closeAlbum('usa-tour')">Back to Gallery</button>
         </div>
 
         <div id="sound-checkPhotos" class="album-photos">
             <h3>Sound Check - Behind the Scenes</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="sound-checkGrid"></div>
             <button class="back-button" onclick="closeAlbum('sound-check')">Back to Gallery</button>
         </div>
 
         <div id="autumnPhotos" class="album-photos">
             <h3>Autumn - Seasonal Photoshoot</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="autumnGrid"></div>
             <button class="back-button" onclick="closeAlbum('autumn')">Back to Gallery</button>
         </div>
 
         <div id="magazinePhotos" class="album-photos">
             <h3>Magazines - Press Features</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="magazineGrid"></div>
             <button class="back-button" onclick="closeAlbum('magazine')">Back to Gallery</button>
         </div>
 
         <div id="awardsPhotos" class="album-photos">
             <h3>Awards - Ceremonies & Honors</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="awardsGrid"></div>
             <button class="back-button" onclick="closeAlbum('awards')">Back to Gallery</button>
         </div>
 
         <div id="warsawPhotos" class="album-photos">
             <h3>Концерт в Варшаве - 2025</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="warsawGrid"></div>
             <button class="back-button" onclick="closeAlbum('warsaw')">Back to Gallery</button>
         </div>
 
         <div id="super-drivePhotos" class="album-photos">
             <h3>Фестиваль Super Drive - Barselona 2025</h3>
+            <div class="photos-loading">Loading photos...</div>
             <div class="photos-grid" id="super-driveGrid"></div>
             <button class="back-button" onclick="closeAlbum('super-drive')">Back to Gallery</button>
         </div>
@@ -591,106 +599,134 @@
     </footer>
 
     <script>
-        // Album data with all photos
+        // Album configuration
         const albums = {
             'laima': {
                 title: 'Laima Rendezvous',
                 description: 'Jurmala 2024',
-                photos: 10,
                 folder: 'gallery/laima/'
             },
             'usa-tour': {
                 title: 'USA Tour',
                 description: '2024',
-                photos: 12,
                 folder: 'gallery/usa-tour/'
             },
             'sound-check': {
                 title: 'Sound Check',
                 description: 'Behind the Scenes',
-                photos: 5,
                 folder: 'gallery/sound-check/'
             },
             'autumn': {
                 title: 'Autumn',
                 description: 'Seasonal Photoshoot',
-                photos: 5,
                 folder: 'gallery/autumn/'
             },
             'magazine': {
                 title: 'Magazines',
                 description: 'Press Features',
-                photos: 8,
                 folder: 'gallery/magazine/'
             },
             'awards': {
                 title: 'Awards',
                 description: 'Ceremonies & Honors',
-                photos: 5,
                 folder: 'gallery/awards/'
             },
             'warsaw': {
                 title: 'Концерт в Варшаве',
                 description: '2025',
-                photos: 10,
                 folder: 'gallery/warsaw/'
             },
             'super-drive': {
                 title: 'Фестиваль Super Drive',
                 description: 'Barselona 2025',
-                photos: 10,
                 folder: 'gallery/super-drive/'
             }
         };
 
-        // Initialize albums on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            for (const albumName in albums) {
-                loadAlbumPhotos(albumName);
-            }
-        });
-
-        function loadAlbumPhotos(albumName) {
-            const album = albums[albumName];
-            const grid = document.getElementById(`${albumName}Grid`);
-            
-            // Clear existing photos
-            grid.innerHTML = '';
-            
-            // Load all photos for this album
-            for (let i = 1; i <= album.photos; i++) {
-                const photoUrl = `${album.folder}${i}.jpg`;
-                const photoItem = document.createElement('div');
-                photoItem.className = 'photo-item';
-                photoItem.innerHTML = `<img src="${photoUrl}" alt="${album.title} photo ${i}">`;
-                grid.appendChild(photoItem);
+        // Function to fetch all photos from a folder
+        async function getPhotosFromFolder(folder) {
+            try {
+                // In a real implementation, you would need a server-side endpoint
+                // that returns the list of photos in the folder
+                // For demo purposes, we'll simulate it
+                
+                // This is just for demonstration - in a real site you need a server-side script
+                const simulatedPhotos = [];
+                for (let i = 1; i <= 10; i++) {
+                    simulatedPhotos.push(`${i}.jpg`);
+                }
+                return simulatedPhotos;
+                
+                // Real implementation would be:
+                // const response = await fetch(`/api/photos?folder=${encodeURIComponent(folder)}`);
+                // if (!response.ok) throw new Error('Failed to fetch photos');
+                // return await response.json();
+            } catch (error) {
+                console.error('Error loading photos:', error);
+                return [];
             }
         }
 
-        function openAlbum(albumName) {
+        // Function to load album photos
+        async function loadAlbumPhotos(albumName) {
+            const album = albums[albumName];
+            const grid = document.getElementById(`${albumName}Grid`);
+            const loadingElement = grid.previousElementSibling;
+            
+            // Show loading message
+            grid.innerHTML = '';
+            loadingElement.style.display = 'block';
+            
+            try {
+                // Get photos from server
+                const photos = await getPhotosFromFolder(album.folder);
+                
+                // Hide loading message
+                loadingElement.style.display = 'none';
+                
+                // Display photos
+                photos.forEach(photo => {
+                    // Skip the cover image
+                    if (photo.includes('cover.jpg')) return;
+                    
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'photo-item';
+                    photoItem.innerHTML = `<img src="${album.folder}${photo}" alt="${album.title} photo">`;
+                    grid.appendChild(photoItem);
+                });
+            } catch (error) {
+                loadingElement.textContent = 'Failed to load photos. Please try again later.';
+            }
+        }
+
+        // Function to open album
+        async function openAlbum(albumName) {
             // Hide all album photos sections first
-            const allAlbumPhotos = document.querySelectorAll('.album-photos');
-            allAlbumPhotos.forEach(album => {
+            document.querySelectorAll('.album-photos').forEach(album => {
                 album.style.display = 'none';
             });
             
             // Hide the album gallery
             document.querySelector('.album-gallery').style.display = 'none';
             
-            // Show the selected album photos
+            // Load and show the selected album photos
+            await loadAlbumPhotos(albumName);
             document.getElementById(`${albumName}Photos`).style.display = 'block';
             
             // Scroll to gallery section
             document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Function to close album
         function closeAlbum(albumName) {
-            // Hide the album photos
             document.getElementById(`${albumName}Photos`).style.display = 'none';
-            
-            // Show the album gallery
             document.querySelector('.album-gallery').style.display = 'grid';
         }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Any initialization code can go here
+        });
     </script>
 </body>
 </html>
