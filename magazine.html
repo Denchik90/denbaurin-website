@@ -3,126 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magazines</title>
+    <title>Magazine Features</title>
     <style>
-        body {
+        /* Уникальный фон для этой страницы */
+        body.magazine-page {
             font-family: 'Roboto', sans-serif;
-            background: #fff;
-            color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
+            position: relative;
+            background: url('images/magazine1.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
+        
+        /* Затемнение фона */
+        body.magazine-page::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
         h2 {
             text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin: 20px 0;
+            font-size: 2.8em;
+            margin: 30px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            color: #fff;
         }
+        
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
         }
-        .photo-gallery img {
+        
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #fff;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .photo-item img {
             width: 100%;
-            height: 200px;
+            height: 340px; /* Увеличена высота для журналов */
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: block;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s;
         }
-        .photo-gallery img:hover {
-            transform: scale(1.05);
+        
+        .photo-item:hover img {
+            transform: scale(1.03);
         }
+        
         .back-link {
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
+        
         .back-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
             text-decoration: none;
-            color: #007bff;
-            font-size: 1.2em;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
         }
+        
         .back-link a:hover {
-            text-decoration: underline;
+            background-color: rgba(255, 255, 255, 0.3);
         }
-        /* Стили для модального окна */
+        
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
         }
+        
         .modal-content {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
         }
+        
         .close {
             position: absolute;
-            top: 20px;
+            top: 25px;
             right: 35px;
-            color: #fff;
-            font-size: 40px;
+            color: white;
+            font-size: 45px;
             font-weight: bold;
             cursor: pointer;
+            transition: color 0.3s;
         }
+        
         .close:hover {
             color: #ccc;
         }
+        
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            user-select: none;
+            padding: 0 20px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-arrow:hover {
+            opacity: 1;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .download-btn {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+            backdrop-filter: blur(5px);
+        }
+        
+        .download-btn:hover {
+            background-color: rgba(0, 86, 179, 0.9);
+        }
     </style>
 </head>
-<body>
-    <h2>Magazines</h2>
+<body class="magazine-page">
+    <h2>Magazine Features</h2>
     <div class="photo-gallery">
-        <img src="images/magazine1.jpg" alt="Magazine 1" onclick="openModal('images/magazine1.jpg')">
-        <img src="images/magazine2.jpg" alt="Magazine 2" onclick="openModal('images/magazine2.jpg')">
-        <img src="images/magazine3.jpg" alt="Magazine 3" onclick="openModal('images/magazine3.jpg')">
-        <img src="images/magazine4.jpg" alt="Magazine 4" onclick="openModal('images/magazine4.jpg')">
-        <img src="images/magazine5.jpg" alt="Magazine 5" onclick="openModal('images/magazine5.jpg')">
-        <img src="images/magazine6.jpg" alt="Magazine 6" onclick="openModal('images/magazine6.jpg')">
-        <!-- Добавьте больше фотографий, если нужно -->
+        <div class="photo-item">
+            <img src="images/magazine1.jpg" alt="Rolling Stone feature" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/magazine2.jpg" alt="Billboard cover story" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/magazine3.jpg" alt="Music Monthly interview" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/magazine4.jpg" alt="Alternative Press spread" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/magazine5.jpg" alt="Vintage Rock feature" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/magazine6.jpg" alt="Urban Sound magazine" loading="lazy" onclick="openModal(this)">
+        </div>
     </div>
     <div class="back-link">
         <a href="index.html#gallery">← Back to Gallery</a>
     </div>
 
-    <!-- Модальное окно -->
+    <!-- Modal -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
+        <span class="nav-arrow prev" onclick="changePhoto(-1)">❮</span>
         <img class="modal-content" id="modalImg">
+        <span class="nav-arrow next" onclick="changePhoto(1)">❯</span>
+        <a id="downloadLink" class="download-btn" download>Download Image</a>
     </div>
 
     <script>
-        // Функция для открытия модального окна
-        function openModal(src) {
+        let currentPhotoIndex = 0;
+        const photos = Array.from(document.querySelectorAll('.photo-gallery img'));
+        
+        function openModal(imgElement) {
+            currentPhotoIndex = photos.indexOf(imgElement);
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("modalImg");
+            const downloadLink = document.getElementById("downloadLink");
             modal.style.display = "flex";
-            modalImg.src = src;
+            modalImg.src = imgElement.src;
+            downloadLink.href = imgElement.src;
+            downloadLink.setAttribute('download', imgElement.src.split('/').pop());
+            document.body.style.overflow = "hidden";
         }
-
-        // Функция для закрытия модального окна
+        
         function closeModal() {
             const modal = document.getElementById("myModal");
             modal.style.display = "none";
+            document.body.style.overflow = "auto";
         }
-
-        // Закрытие модального окна при клике вне изображения
+        
+        function changePhoto(step) {
+            currentPhotoIndex += step;
+            if (currentPhotoIndex >= photos.length) currentPhotoIndex = 0;
+            if (currentPhotoIndex < 0) currentPhotoIndex = photos.length - 1;
+            const modalImg = document.getElementById("modalImg");
+            const downloadLink = document.getElementById("downloadLink");
+            modalImg.src = photos[currentPhotoIndex].src;
+            downloadLink.href = photos[currentPhotoIndex].src;
+            downloadLink.setAttribute('download', photos[currentPhotoIndex].src.split('/').pop());
+        }
+        
         window.onclick = function(event) {
             const modal = document.getElementById("myModal");
             if (event.target == modal) {
                 closeModal();
             }
         }
+        
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById("myModal");
+            if (modal.style.display === "flex") {
+                if (event.key === "Escape") closeModal();
+                if (event.key === "ArrowLeft") changePhoto(-1);
+                if (event.key === "ArrowRight") changePhoto(1);
+            }
+        });
     </script>
 </body>
 </html>
