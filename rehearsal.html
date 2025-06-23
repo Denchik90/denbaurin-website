@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehearsals Gallery</title>
+    <style>
+        /* Уникальный фон ТОЛЬКО для этой страницы */
+        body.rehearsals-page {
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background: url('images/rehearsal1.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        /* Затемнение фона */
+        body.rehearsals-page::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin: 30px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+        }
+        
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #fff;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        .back-link {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .back-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .back-link a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: #ccc;
+        }
+        
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            user-select: none;
+            padding: 0 20px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-arrow:hover {
+            opacity: 1;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body class="rehearsals-page">
+    <h2>Rehearsals</h2>
+    <div class="photo-gallery">
+        <div class="photo-item">
+            <img src="images/rehearsal1.jpg" alt="Band rehearsal session" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/rehearsal2.jpg" alt="Musicians practicing" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/rehearsal3.jpg" alt="Drummer during rehearsal" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/rehearsal4.jpg" alt="Vocalist practicing" loading="lazy" onclick="openModal(this)">
+        </div>
+        <div class="photo-item">
+            <img src="images/rehearsal5.jpg" alt="Full band rehearsal" loading="lazy" onclick="openModal(this)">
+        </div>
+    </div>
+    <div class="back-link">
+        <a href="index.html#gallery">← Back to Gallery</a>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <span class="nav-arrow prev" onclick="changePhoto(-1)">❮</span>
+        <img class="modal-content" id="modalImg">
+        <span class="nav-arrow next" onclick="changePhoto(1)">❯</span>
+    </div>
+
+    <script>
+        let currentPhotoIndex = 0;
+        const photos = Array.from(document.querySelectorAll('.photo-gallery img'));
+        
+        function openModal(imgElement) {
+            currentPhotoIndex = photos.indexOf(imgElement);
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = imgElement.src;
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        function changePhoto(step) {
+            currentPhotoIndex += step;
+            if (currentPhotoIndex >= photos.length) currentPhotoIndex = 0;
+            if (currentPhotoIndex < 0) currentPhotoIndex = photos.length - 1;
+            document.getElementById("modalImg").src = photos[currentPhotoIndex].src;
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById("myModal");
+            if (modal.style.display === "flex") {
+                if (event.key === "Escape") closeModal();
+                if (event.key === "ArrowLeft") changePhoto(-1);
+                if (event.key === "ArrowRight") changePhoto(1);
+            }
+        });
+    </script>
+</body>
+</html>
