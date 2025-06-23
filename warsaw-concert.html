@@ -7,11 +7,41 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: #fff;
-            color: #000;
             margin: 0;
             padding: 0;
+            color: #000;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .gallery-container {
+            position: relative;
+            flex: 1;
+        }
+        
+        .fullscreen-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/warsaw1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+        
+        .fullscreen-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
         }
         
         h2 {
@@ -22,7 +52,6 @@
             padding-top: 20px;
             color: white;
             position: relative;
-            z-index: 1;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
@@ -34,26 +63,9 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-image: url('images/warsaw1.jpg');
-        }
-        
-        .photo-gallery::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 0;
         }
         
         .photo-item {
-            position: relative;
-            z-index: 1;
             background: rgba(255,255,255,0.9);
             border-radius: 10px;
             overflow: hidden;
@@ -92,7 +104,6 @@
             font-size: 14px;
             transition: all 0.3s ease;
             opacity: 0;
-            z-index: 2;
         }
         
         .photo-item:hover .download-btn {
@@ -107,7 +118,6 @@
             text-align: center;
             margin: 20px 0 40px;
             position: relative;
-            z-index: 1;
         }
         
         .back-link a {
@@ -194,12 +204,21 @@
             .photo-item img {
                 height: 250px;
             }
+            
+            .fullscreen-bg {
+                background-attachment: scroll;
+            }
         }
         
         @media (max-width: 480px) {
             .photo-gallery {
                 grid-template-columns: 1fr;
-                background-attachment: scroll;
+                padding: 20px 10px;
+            }
+            
+            h2 {
+                font-size: 2em;
+                padding-top: 10px;
             }
             
             .modal-content {
@@ -211,72 +230,76 @@
     </style>
 </head>
 <body>
-    <h2>Концерт в Варшаве 2025</h2>
-    
-    <div class="photo-gallery">
-        <!-- Фото 1 -->
-        <div class="photo-item">
-            <img src="images/warsaw1.jpg" alt="Концерт в Варшаве 1" onclick="openModal(this.src, 'warsaw1.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw1.jpg', 'warsaw1.jpg')">Скачать</button>
+    <div class="gallery-container">
+        <div class="fullscreen-bg"></div>
+        
+        <h2>Концерт в Варшаве 2025</h2>
+        
+        <div class="photo-gallery">
+            <!-- Фото 1 -->
+            <div class="photo-item">
+                <img src="images/warsaw1.jpg" alt="Концерт в Варшаве 1" onclick="openModal(this.src, 'warsaw1.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw1.jpg', 'warsaw1.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 2 -->
+            <div class="photo-item">
+                <img src="images/warsaw2.jpg" alt="Концерт в Варшаве 2" onclick="openModal(this.src, 'warsaw2.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw2.jpg', 'warsaw2.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 3 -->
+            <div class="photo-item">
+                <img src="images/warsaw3.jpg" alt="Концерт в Варшаве 3" onclick="openModal(this.src, 'warsaw3.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw3.jpg', 'warsaw3.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 4 -->
+            <div class="photo-item">
+                <img src="images/warsaw4.jpg" alt="Концерт в Варшаве 4" onclick="openModal(this.src, 'warsaw4.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw4.jpg', 'warsaw4.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 5 -->
+            <div class="photo-item">
+                <img src="images/warsaw5.jpg" alt="Концерт в Варшаве 5" onclick="openModal(this.src, 'warsaw5.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw5.jpg', 'warsaw5.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 6 -->
+            <div class="photo-item">
+                <img src="images/warsaw6.jpg" alt="Концерт в Варшаве 6" onclick="openModal(this.src, 'warsaw6.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw6.jpg', 'warsaw6.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 7 -->
+            <div class="photo-item">
+                <img src="images/warsaw7.jpg" alt="Концерт в Варшаве 7" onclick="openModal(this.src, 'warsaw7.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw7.jpg', 'warsaw7.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 8 -->
+            <div class="photo-item">
+                <img src="images/warsaw8.jpg" alt="Концерт в Варшаве 8" onclick="openModal(this.src, 'warsaw8.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw8.jpg', 'warsaw8.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 9 -->
+            <div class="photo-item">
+                <img src="images/warsaw9.jpg" alt="Концерт в Варшаве 9" onclick="openModal(this.src, 'warsaw9.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw9.jpg', 'warsaw9.jpg')">Скачать</button>
+            </div>
+            
+            <!-- Фото 10 -->
+            <div class="photo-item">
+                <img src="images/warsaw10.jpg" alt="Концерт в Варшаве 10" onclick="openModal(this.src, 'warsaw10.jpg')">
+                <button class="download-btn" onclick="downloadImage('images/warsaw10.jpg', 'warsaw10.jpg')">Скачать</button>
+            </div>
         </div>
         
-        <!-- Фото 2 -->
-        <div class="photo-item">
-            <img src="images/warsaw2.jpg" alt="Концерт в Варшаве 2" onclick="openModal(this.src, 'warsaw2.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw2.jpg', 'warsaw2.jpg')">Скачать</button>
+        <div class="back-link">
+            <a href="index.html#gallery">← Назад в галерею</a>
         </div>
-        
-        <!-- Фото 3 -->
-        <div class="photo-item">
-            <img src="images/warsaw3.jpg" alt="Концерт в Варшаве 3" onclick="openModal(this.src, 'warsaw3.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw3.jpg', 'warsaw3.jpg')">Скачать</button>
-        </div>
-        
-        <!-- Фото 4 -->
-        <div class="photo-item">
-            <img src="images/warsaw4.jpg" alt="Концерт в Варшаве 4" onclick="openModal(this.src, 'warsaw4.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw4.jpg', 'warsaw4.jpg')">Скачать</button>
-        </div>
-        
-        <!-- Фото 5 -->
-        <div class="photo-item">
-            <img src="images/warsaw5.jpg" alt="Концерт в Варшаве 5" onclick="openModal(this.src, 'warsaw5.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw5.jpg', 'warsaw5.jpg')">Скачать</button>
-        </div>
-        
-        <!-- Фото 6 -->
-        <div class="photo-item">
-            <img src="images/warsaw6.jpg" alt="Концерт в Варшаве 6" onclick="openModal(this.src, 'warsaw6.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw6.jpg', 'warsaw6.jpg')">Скачать</button>
-        </div>
-        
-        <!-- Фото 7 -->
-        <div class="photo-item">
-            <img src="images/warsaw7.jpg" alt="Концерт в Варшаве 7" onclick="openModal(this.src, 'warsaw7.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw7.jpg', 'warsaw7.jpg')">Скачать</button>
-        </div>
-        
-        <!-- Фото 8 -->
-        <div class="photo-item">
-            <img src="images/warsaw8.jpg" alt="Концерт в Варшаве 8" onclick="openModal(this.src, 'warsaw8.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw8.jpg', 'warsaw8.jpg')">Скачать</button>
-        </div>
-        
-        <!-- Фото 9 -->
-        <div class="photo-item">
-            <img src="images/warsaw9.jpg" alt="Концерт в Варшаве 9" onclick="openModal(this.src, 'warsaw9.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw9.jpg', 'warsaw9.jpg')">Скачать</button>
-        </div>
-        
-        <!-- Фото 10 -->
-        <div class="photo-item">
-            <img src="images/warsaw10.jpg" alt="Концерт в Варшаве 10" onclick="openModal(this.src, 'warsaw10.jpg')">
-            <button class="download-btn" onclick="downloadImage('images/warsaw10.jpg', 'warsaw10.jpg')">Скачать</button>
-        </div>
-    </div>
-    
-    <div class="back-link">
-        <a href="index.html#gallery">← Назад в галерею</a>
     </div>
     
     <!-- Модальное окно -->
