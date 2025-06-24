@@ -10,23 +10,21 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif, Arial, Helvetica;
-            background: 
-                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-                url('images/warsaw-concert1.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: #fff;
             color: #000;
             overflow-x: hidden;
         }
 
-        /* Шапка с главной фотографией */
         header {
             position: relative;
             height: 100vh;
             text-align: center;
+            color: #000;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         header .background {
@@ -35,7 +33,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/main-header-photo.jpg') no-repeat center center/cover;
+            background: url('header-bg.jpg') no-repeat center center/cover;
             z-index: -1;
         }
 
@@ -67,13 +65,12 @@
         nav {
             display: flex;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.8);
+            background: #000;
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
             font-size: 1.2em;
-            backdrop-filter: blur(5px);
         }
 
         nav a {
@@ -92,17 +89,21 @@
         section {
             padding: 50px 15px;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.8);
-            margin: 30px auto;
-            max-width: 1200px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
             font-family: 'Playfair Display', serif;
+        }
+
+        /* Warsaw Background Section */
+        .warsaw-background {
+            background: url('warsaw1.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            padding: 100px 20px;
         }
 
         /* Polaroid Gallery Section */
@@ -164,7 +165,9 @@
 
         /* Premiere Section */
         .premiere-section {
+            background-color: #f8f9fa;
             padding: 50px 15px;
+            text-align: center;
         }
 
         .premiere-video {
@@ -176,7 +179,6 @@
             width: 100%;
             height: 450px;
             border-radius: 10px;
-            border: none;
         }
 
         /* Video Gallery */
@@ -191,7 +193,6 @@
             width: 100%;
             height: 200px;
             border-radius: 10px;
-            border: none;
         }
 
         /* News Section */
@@ -232,22 +233,12 @@
             font-size: 1.2em;
         }
 
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
         footer {
-            background: rgba(0, 0, 0, 0.8);
+            background: #000;
             color: #fff;
             text-align: center;
             padding: 30px 0;
-            margin-top: 50px;
-            backdrop-filter: blur(5px);
+            margin-top: 30px;
         }
 
         .social-icons {
@@ -283,7 +274,6 @@
 
             section {
                 padding: 30px 10px;
-                margin: 20px 10px;
             }
 
             section h2 {
@@ -372,7 +362,7 @@
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="warsaw-background">
         <h2>About Me</h2>
         <p>DEN BAURIN is an artist who connects music and emotions, creating memorable melodies that inspire listeners worldwide. His unique style blends modern sound with deep lyrics, and his powerful stage energy captivates every audience.</p>
     </section>
@@ -380,7 +370,6 @@
     <section id="news" class="news-section">
         <h2>News</h2>
         <ul>
-            <li><a href="https://rai.ua/varto-znaty/den-baurin-avtor-ta-vykonavets-iakyi-aktyvno-predstavliaie-ukrainsku-muzyku-v-ievropi-ssha-ta-kanadi" target="_blank">Den Baurin - автор та виконавець, який активно представляє українську музику в Європі, США та Канаді</a></li>
             <li><a href="https://www.wicz.com/story/52459875/den-baurins-freelove-eurovision-2025-audition-song-already-on-radio-worldwide" target="_blank">Den Baurin's "Free Love" Eurovision 2025 audition song already on radio worldwide</a></li>
             <li><a href="https://www.dailymusicroll.com/latest-news/experience-the-magic-of-budapest-den-baurin-moonlight-premiere.html" target="_blank">Experience the Magic of Budapest - Den Baurin "Moonlight" Premiere</a></li>
             <li><a href="https://meta.ua/showbiz/glamur/257207-ukrainskii-pevets-prinyal-uchastie-v-natsotbore-na-eurovision-2025-ot-sanmarino/" target="_blank">Ukrainian singer took part in the national selection for Eurovision 2025 from San Marino</a></li>
@@ -399,60 +388,52 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="polaroid-gallery">
-            <!-- Все альбомы с обложками -->
-            <a href="warsaw-concert.html" class="polaroid" style="background-image: url('images/warsaw-cover.jpg')">
-                <div class="polaroid-content">
-                    <h3>Концерт в Варшаве</h3>
-                    <p>2025</p>
-                </div>
-            </a>
-            
-            <a href="barcelona-fest.html" class="polaroid" style="background-image: url('images/barcelona-cover.jpg')">
-                <div class="polaroid-content">
-                    <h3>Super Drive Fest 2025</h3>
-                    <p>Barcelona</p>
-                </div>
-            </a>
-            
-            <a href="laima-rendezvous.html" class="polaroid" style="background-image: url('images/laima-cover.jpg')">
+            <a href="laima-rendezvous.html" class="polaroid" style="background-image: url('laima3.jpg')">
                 <div class="polaroid-content">
                     <h3>Laima Rendezvous</h3>
                     <p>Jurmala 2024</p>
                 </div>
             </a>
             
-            <a href="usa-tour.html" class="polaroid" style="background-image: url('images/usa-cover.jpg')">
+            <a href="usa-tour.html" class="polaroid" style="background-image: url('ukraine1.JPG')">
                 <div class="polaroid-content">
                     <h3>USA Tour</h3>
-                    <p>2023-2024</p>
+                    <p>2024</p>
                 </div>
             </a>
             
-            <a href="sound-check.html" class="polaroid" style="background-image: url('images/soundcheck-cover.jpg')">
+            <a href="sound-check.html" class="polaroid" style="background-image: url('sound-check1.jpg')">
                 <div class="polaroid-content">
                     <h3>Sound Check</h3>
                     <p>Behind the Scenes</p>
                 </div>
             </a>
             
-            <a href="autumn.html" class="polaroid" style="background-image: url('images/autumn-cover.jpg')">
+            <a href="autumn.html" class="polaroid" style="background-image: url('autumn1.jpg')">
                 <div class="polaroid-content">
                     <h3>Autumn</h3>
                     <p>Seasonal Photoshoot</p>
                 </div>
             </a>
             
-            <a href="magazine.html" class="polaroid" style="background-image: url('images/magazine-cover.jpg')">
+            <a href="magazines.html" class="polaroid" style="background-image: url('magazine1.jpg')">
                 <div class="polaroid-content">
                     <h3>Magazines</h3>
                     <p>Press Features</p>
                 </div>
             </a>
             
-            <a href="awards.html" class="polaroid" style="background-image: url('images/awards-cover.jpg')">
+            <a href="awards.html" class="polaroid" style="background-image: url('awards1.jpg')">
                 <div class="polaroid-content">
                     <h3>Awards</h3>
                     <p>Ceremonies & Honors</p>
+                </div>
+            </a>
+
+            <a href="warsaw-concert.html" class="polaroid" style="background-image: url('warsaw1.jpg')">
+                <div class="polaroid-content">
+                    <h3>Концерт в Варшаве</h3>
+                    <p>2025</p>
                 </div>
             </a>
         </div>
@@ -477,7 +458,6 @@
         <h2>Contact</h2>
         <div class="contact-info">
             <p>Email: <a href="mailto:denbaurin.music@gmail.com">denbaurin.music@gmail.com</a></p>
-            <p><a href="mailto:info@denbaurin.com">info@denbaurin.com</a></p>
         </div>
     </section>
 
