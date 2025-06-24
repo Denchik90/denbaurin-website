@@ -7,7 +7,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
 
-        /* Основной фон сайта */
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif, Arial, Helvetica;
@@ -19,17 +18,15 @@
             overflow-x: hidden;
         }
 
-        /* Шапка с главным изображением */
+        /* Шапка с главной фотографией */
         header {
             position: relative;
             height: 100vh;
             text-align: center;
-            color: #000;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
         }
 
         header .background {
@@ -38,7 +35,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/header-bg.jpg') no-repeat center center/cover;
+            background: url('images/main-header-photo.jpg') no-repeat center center/cover;
             z-index: -1;
         }
 
@@ -67,7 +64,6 @@
             text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000;
         }
 
-        /* Остальные стили остаются без изменений */
         nav {
             display: flex;
             justify-content: center;
@@ -403,56 +399,57 @@
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="polaroid-gallery">
-            <a href="warsaw-concert.html" class="polaroid" style="background-image: url('images/warsaw-concert1.jpg')">
+            <!-- Все альбомы с обложками -->
+            <a href="warsaw-concert.html" class="polaroid" style="background-image: url('images/warsaw-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>Концерт в Варшаве</h3>
                     <p>2025</p>
                 </div>
             </a>
             
-            <a href="barcelona-fest.html" class="polaroid" style="background-image: url('images/barcelona-fest1.jpg')">
+            <a href="barcelona-fest.html" class="polaroid" style="background-image: url('images/barcelona-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>Super Drive Fest 2025</h3>
                     <p>Barcelona</p>
                 </div>
             </a>
             
-            <a href="laima-rendezvous.html" class="polaroid" style="background-image: url('images/laima-rendezvous1.jpg')">
+            <a href="laima-rendezvous.html" class="polaroid" style="background-image: url('images/laima-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>Laima Rendezvous</h3>
                     <p>Jurmala 2024</p>
                 </div>
             </a>
             
-            <a href="usa-tour.html" class="polaroid" style="background-image: url('images/usa-tour1.jpg')">
+            <a href="usa-tour.html" class="polaroid" style="background-image: url('images/usa-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>USA Tour</h3>
                     <p>2023-2024</p>
                 </div>
             </a>
             
-            <a href="sound-check.html" class="polaroid" style="background-image: url('images/sound-check1.jpg')">
+            <a href="sound-check.html" class="polaroid" style="background-image: url('images/soundcheck-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>Sound Check</h3>
                     <p>Behind the Scenes</p>
                 </div>
             </a>
             
-            <a href="autumn.html" class="polaroid" style="background-image: url('images/autumn1.jpg')">
+            <a href="autumn.html" class="polaroid" style="background-image: url('images/autumn-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>Autumn</h3>
                     <p>Seasonal Photoshoot</p>
                 </div>
             </a>
             
-            <a href="magazine.html" class="polaroid" style="background-image: url('images/magazine1.jpg')">
+            <a href="magazine.html" class="polaroid" style="background-image: url('images/magazine-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>Magazines</h3>
                     <p>Press Features</p>
                 </div>
             </a>
             
-            <a href="awards.html" class="polaroid" style="background-image: url('images/award1.jpg')">
+            <a href="awards.html" class="polaroid" style="background-image: url('images/awards-cover.jpg')">
                 <div class="polaroid-content">
                     <h3>Awards</h3>
                     <p>Ceremonies & Honors</p>
