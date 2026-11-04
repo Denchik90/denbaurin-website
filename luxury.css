@@ -24,3 +24,9 @@ section h2,section#premiere h2,section#about h2,section#music h2,section#gallery
 .polaroid p{font:400 11px/1.3 'DM Sans',sans-serif!important;color:#605a54!important;letter-spacing:.04em!important;text-transform:none!important;}
 @media(max-width:850px){.polaroid-gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:38px 28px!important;padding:20px 16px 40px!important;}}
 @media(max-width:520px){.polaroid-gallery{grid-template-columns:1fr!important;max-width:390px!important;gap:35px!important;padding:15px 24px 40px!important;}.polaroid{height:315px!important;}}
+
+/* Original site's persistent photographic backdrop */
+html{background:#0b0c0e!important;}
+body{background-image:linear-gradient(rgba(6,8,14,.40),rgba(6,8,14,.48)),url('images/warsaw-concert1.jpg')!important;background-position:center center!important;background-size:cover!important;background-repeat:no-repeat!important;background-attachment:fixed!important;}
+section{background:rgba(12,13,19,.76)!important;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,.10)!important;border-radius:10px!important;margin:28px auto!important;}
+@media(max-width:700px){body{background-attachment:scroll!important;}section{margin:14px 10px!important;}}
